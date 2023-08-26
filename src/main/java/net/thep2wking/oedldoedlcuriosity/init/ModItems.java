@@ -8,6 +8,7 @@ import net.thep2wking.oedldoedlcore.util.ModRarities;
 import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.head.ItemBunnyEars;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.head.ModItemBaubleBodyBase;
+import net.thep2wking.oedldoedlcuriosity.content.item.bauble.head.ModItemBaubleWings;
 import net.thep2wking.oedldoedlcuriosity.model.ModelAmulet;
 import net.thep2wking.oedldoedlcuriosity.model.ModelAnimatedWings;
 import net.thep2wking.oedldoedlcuriosity.model.ModelBlueKyoryuuHorns;
@@ -69,8 +70,8 @@ public class ModItems {
 	public static final Item FAKE_ARROW = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "fake_arrow", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, BaubleType.HEAD, new ModelFakeArrow(1), ModRarities.AQUA, false, 1, 0);
 
 	public static final Item WOODEN_BOX = new ModItemBaubleBodyBase(OedldoedlCuriosity.MODID, "wooden_box", OedldoedlCuriosity.TAB, SoundEvents.BLOCK_WOOD_PLACE, BaubleType.BODY, new ModelWoodenBox(1), ModRarities.LIGHT_PURPLE, false, 1, 0);
-	public static final Item TRAVELLERS_WINGS = new ModItemBaubleBodyBase(OedldoedlCuriosity.MODID, "travellers_wings", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.BODY, new ModelAnimatedWings(1), ModRarities.YELLOW, false, 1, 0);
-	public static final Item DEMONIC_WINGS = new ModItemBaubleBodyBase(OedldoedlCuriosity.MODID, "demonic_wings", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.BODY, new ModelAnimatedWings(1), ModRarities.LIGHT_PURPLE, false, 2, 0);
+	public static final Item TRAVELLERS_WINGS = new ModItemBaubleWings(OedldoedlCuriosity.MODID, "travellers_wings", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.BODY, new ModelAnimatedWings(1), ModRarities.YELLOW, false, 1, 0);
+	public static final Item DEMONIC_WINGS = new ModItemBaubleWings(OedldoedlCuriosity.MODID, "demonic_wings", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.BODY, new ModelAnimatedWings(1), ModRarities.LIGHT_PURPLE, false, 2, 0);
 	public static final Item DEVIL_WINGS = new ModItemBaubleBodyBase(OedldoedlCuriosity.MODID, "devil_wings", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.BODY, new ModelFlatWings(1), ModRarities.LIGHT_PURPLE, false, 1, 0);
 	public static final Item DEVIL_TAIL = new ModItemBaubleBodyBase(OedldoedlCuriosity.MODID, "devil_tail", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.BODY, new ModelDevilTail(1), ModRarities.AQUA, false, 1, 0);
 	

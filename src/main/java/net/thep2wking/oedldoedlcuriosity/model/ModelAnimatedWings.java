@@ -98,6 +98,7 @@ public class ModelAnimatedWings extends ModModelBaubleBase {
 		WingBaseLeft.addChild(WingAuxLeft);
 	}
 
+	@Override
 	public void render(Entity entity, float f, float f1, float f2, float f3, float f4, float f5) {
 		super.render(entity, f, f1, f2, f3, f4, f5);
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
@@ -152,11 +153,6 @@ public class ModelAnimatedWings extends ModModelBaubleBase {
 			this.WingBaseLeft.rotateAngleX = MathHelper.sin(partialTick / slow) / 5f + 0.5235988F;
 			this.WingBaseLeft.rotateAngleY = -MathHelper.sin(partialTick / slow) / 3 + 0.6f;
 			this.WingBaseLeft.rotateAngleZ = -MathHelper.sin(partialTick / slow) / 1.5f + 0.3f;
-		}
-
-		if (this.isSneak) {
-			this.WingBaseRight.rotateAngleX += 0.4f;
-			this.WingBaseLeft.rotateAngleX += 0.4f;
 		}
 	}
 }

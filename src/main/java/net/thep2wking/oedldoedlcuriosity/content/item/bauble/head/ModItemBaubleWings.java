@@ -23,11 +23,12 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.api.item.ModItemBase;
 import net.thep2wking.oedldoedlcore.config.CoreConfig;
+import net.thep2wking.oedldoedlcuriosity.model.ModelAnimatedWings;
 
 /**
  * @author TheP2WKing
  */
-public class ModItemBaubleBodyBase extends ModItemBase implements IBauble, IRenderBauble {
+public class ModItemBaubleWings extends ModItemBase implements IBauble, IRenderBauble {
     public final SoundEvent sound;
     public final BaubleType baubleType;
     public ModelBiped baubleModel;
@@ -45,7 +46,7 @@ public class ModItemBaubleBodyBase extends ModItemBase implements IBauble, IRend
      * @param tooltipLines    int
      * @param annotationLines int
      */
-    public ModItemBaubleBodyBase(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
+    public ModItemBaubleWings(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
             ModelBiped baubleModel, EnumRarity rarity, boolean hasEffect, int tooltipLines, int annotationLines) {
         super(modid, name, tab, rarity, hasEffect, tooltipLines, annotationLines);
         this.sound = sound;
@@ -94,7 +95,7 @@ public class ModItemBaubleBodyBase extends ModItemBase implements IBauble, IRend
 
     @SideOnly(Side.CLIENT)
     public ModelBiped getBaubleModel() {
-        return baubleModel;
+        return new ModelAnimatedWings(1);
     }
 
     public ResourceLocation getTexture() {
@@ -114,10 +115,11 @@ public class ModItemBaubleBodyBase extends ModItemBase implements IBauble, IRend
         GlStateManager.scale(s, s, s);
 
         if (baubleModel == null)
-            baubleModel = getBaubleModel();
+            baubleModel = new ModelAnimatedWings(1);
 
         if (CoreConfig.PROPERTIES.BAUBLES.BAUBLE_RENDER) {
             baubleModel.bipedBody.render(1);
+            baubleModel.bipedBody.setRotationPoint(s, partialTicks, s);
         }
     }
 }

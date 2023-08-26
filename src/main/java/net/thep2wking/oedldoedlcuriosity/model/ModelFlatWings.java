@@ -31,27 +31,20 @@ public class ModelFlatWings extends ModModelBaubleBase {
 	}
 
 	@Override
-	public void setRotationAngles(float limbSwing, float limbSwingAmount, float partialTick, float netHeadYaw, float headPitch, float scaleFactor, Entity entityIn) {
+	public void setRotationAngles(float limbSwing, float limbSwingAmount, float partialTick, float netHeadYaw,
+			float headPitch, float scaleFactor, Entity entityIn) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, partialTick, netHeadYaw, headPitch, scaleFactor, entityIn);
-        {
-        	EntityPlayer player = (EntityPlayer) entityIn;
-            float slow = 10f;
-            float fly = 5f;
-            if(player.capabilities.isFlying)
-            {
-	            this.cube_r2.rotateAngleY = MathHelper.sin(partialTick / fly) / 5 + 0.6f; // 3 +0.6   6 0.5
-	            this.cube_r1.rotateAngleY = -MathHelper.sin(partialTick / fly) / 5 - 0.6f;
-            }
-            else
-            {
-	            this.cube_r2.rotateAngleY = MathHelper.sin(partialTick / slow) / 5 + 0.6f; // 3 +0.6   6 0.5
-	            this.cube_r1.rotateAngleY = -MathHelper.sin(partialTick / slow) / 5 - 0.6f;
-            }
-        }
-
-		if (this.isSneak) {
-			this.cube_r1.rotateAngleX += 0.4f;
-			this.cube_r2.rotateAngleX += 0.4f;
+		{
+			EntityPlayer player = (EntityPlayer) entityIn;
+			float slow = 10f;
+			float fly = 5f;
+			if (player.capabilities.isFlying) {
+				this.cube_r2.rotateAngleY = MathHelper.sin(partialTick / fly) / 5 + 0.6f; // 3 +0.6 6 0.5
+				this.cube_r1.rotateAngleY = -MathHelper.sin(partialTick / fly) / 5 - 0.6f;
+			} else {
+				this.cube_r2.rotateAngleY = MathHelper.sin(partialTick / slow) / 5 + 0.6f; // 3 +0.6 6 0.5
+				this.cube_r1.rotateAngleY = -MathHelper.sin(partialTick / slow) / 5 - 0.6f;
+			}
 		}
 	}
 }
