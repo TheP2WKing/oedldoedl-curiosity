@@ -3,7 +3,7 @@ package net.thep2wking.oedldoedlcuriosity.model;
 import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.math.MathHelper;
-import net.thep2wking.oedldoedlcore.api.integration.baubles.ModModelBaubleBase;
+import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelAnimatedWings extends ModModelBaubleBase {
 	ModelRenderer WingBaseRight = new ModelRenderer(this);
@@ -104,12 +104,6 @@ public class ModelAnimatedWings extends ModModelBaubleBase {
 		setRotationAngles(f, f1, f2, f3, f4, f5, entity);
 		WingBaseRight.render(f5);
 		WingBaseLeft.render(f5);
-	}
-
-	public void setRotation(ModelRenderer model, float x, float y, float z) {
-		model.rotateAngleX = x;
-		model.rotateAngleY = y;
-		model.rotateAngleZ = z;
 	}
 
 	@Override

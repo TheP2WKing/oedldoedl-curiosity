@@ -9,12 +9,14 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundEvent;
-import net.thep2wking.oedldoedlcore.api.integration.baubles.ModItemBaubleBase;
+import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 
 public class ItemBunnyEars extends ModItemBaubleBase {
 	public ItemBunnyEars(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, EnumRarity rarity, boolean hasEffect, int tooltipLines, int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, rarity, hasEffect, tooltipLines, annotationLines);
+			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			int annotationLines) {
+		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+				annotationLines);
 	}
 
 	@Override

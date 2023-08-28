@@ -19,6 +19,7 @@ import net.thep2wking.oedldoedlcore.config.CoreConfig;
 import net.thep2wking.oedldoedlcore.init.ModItems;
 import net.thep2wking.oedldoedlcore.util.ModLogger;
 import net.thep2wking.oedldoedlcore.util.ModReferences;
+import net.thep2wking.oedldoedlcuriosity.registry.ModRecipes;
 import net.thep2wking.oedldoedlcuriosity.util.proxy.CommonProxy;
 
 @Mod(modid = OedldoedlCuriosity.MODID, name = OedldoedlCuriosity.NAME, version = OedldoedlCuriosity.VERSION, dependencies = OedldoedlCuriosity.DEPENDENCIES)
@@ -61,8 +62,8 @@ public class OedldoedlCuriosity {
     @Mod.EventHandler
     public void init(FMLInitializationEvent event) {
         ModLogger.initLogger(MODID);
-        // ModRecipes.registerOreDict();
-        // ModRecipes.registerRecipes();
+        ModRecipes.registerOreDict();
+        ModRecipes.registerRecipes();
         PROXY.init(event);
     }
 

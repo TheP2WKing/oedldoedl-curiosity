@@ -1,7 +1,7 @@
 package net.thep2wking.oedldoedlcuriosity.model;
 
 import net.minecraft.client.model.ModelRenderer;
-import net.thep2wking.oedldoedlcore.api.integration.baubles.ModModelBaubleBase;
+import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelGlasses extends ModModelBaubleBase {
 	public ModelGlasses(float modelSize) {

@@ -1,14 +1,14 @@
 package net.thep2wking.oedldoedlcuriosity.model;
 
 import net.minecraft.client.model.ModelRenderer;
-import net.thep2wking.oedldoedlcore.api.integration.baubles.ModModelBaubleBase;
+import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelBunnyEars extends ModModelBaubleBase {
 	public ModelBunnyEars(float modelSize) {
 		super(modelSize);
 
 		ModelRenderer model1 = new ModelRenderer(this);
-		model1.setRotationPoint(0, 24, 0.1F);
+		model1.setRotationPoint(0, 24, 0.5F);
 		bipedHead.addChild(model1);
 		model1.setTextureOffset(117, 11).addBox(-2, -37, -1, 1, 5, 1, false);
 

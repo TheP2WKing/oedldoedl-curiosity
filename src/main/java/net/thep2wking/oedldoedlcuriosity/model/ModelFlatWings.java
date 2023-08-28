@@ -4,7 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.math.MathHelper;
-import net.thep2wking.oedldoedlcore.api.integration.baubles.ModModelBaubleBase;
+import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelFlatWings extends ModModelBaubleBase {
 	ModelRenderer cube_r1 = new ModelRenderer(this);
