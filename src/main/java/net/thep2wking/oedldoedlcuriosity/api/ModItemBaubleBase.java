@@ -94,17 +94,17 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
     }
 
     public void getEquipmentSound(EntityLivingBase player) {
-        player.playSound(this.sound, 0.75f, 1f);
+        player.playSound(sound, 0.75f, 1f);
     }
 
     @Override
     public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
-        player.playSound(this.sound, 0.75f, 1f);
+        this.getEquipmentSound(player);
     }
 
     @Override
     public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
-        player.playSound(this.sound, 0.75f, 1f);
+        this.getEquipmentSound(player);
     }
 
     public ModelBiped getBaubleModel() {
@@ -119,7 +119,7 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
     @SideOnly(Side.CLIENT)
     public void onPlayerBaubleRender(ItemStack itemStack, EntityPlayer player, RenderType renderType,
             float partialTicks) {
-        if (!this.isBodyModel) {
+        if (!this.isBodyModel && hasBaubleRender) {
             if (renderType != RenderType.HEAD)
                 return;
 
@@ -145,7 +145,7 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
                 baubleModel.setRotationAngles(player.limbSwing, player.limbSwingAmount, player.ticksExisted,
                         player.cameraYaw, player.cameraPitch, s, player);
             }
-        } else if (this.isBodyModel) {
+        } else if (this.isBodyModel && hasBaubleRender) {
             if (renderType != RenderType.BODY)
                 return;
 

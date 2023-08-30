@@ -60,6 +60,10 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.HIMEJIMARIUM_AMULET);
 		ModRegistryHelper.registerItem(event, ModItems.TOUJOURIUM_AMULET);
 		ModRegistryHelper.registerItem(event, ModItems.ARGENTORIUM_AMULET);
+		ModRegistryHelper.registerItem(event, ModItems.QUARTARIUM_AMULET);
+		ModRegistryHelper.registerItem(event, ModItems.NAGATORIUM_AMULET);
+		ModRegistryHelper.registerItem(event, ModItems.SAKURAJIMARIUM_AMULET);
+		ModRegistryHelper.registerItem(event, ModItems.KITAGAWARIUM_AMULET);
 		ModRegistryHelper.registerItem(event, ModItems.BALANCED_NECKLACE);
 
 		ModRegistryHelper.registerItem(event, ModItems.TRAVELLERS_GLOVES);
@@ -68,5 +72,14 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.BEDROCKIUM_RING);
 		ModRegistryHelper.registerItem(event, ModItems.OEDLDOEDL_RING);
 		ModRegistryHelper.registerItem(event, ModItems.ANGEL_RING);
+
+		ModRegistryHelper.registerItem(event, ModItems.LOADING_CASE);
+		ModRegistryHelper.registerItem(event, ModItems.PRO_LOADING_CASE);
+		ModRegistryHelper.registerItem(event, ModItems.MAGIC_FABRIC);
+		ModRegistryHelper.registerItem(event, ModItems.SAFETY_PIN);
+		ModRegistryHelper.registerItem(event, ModItems.ELECTRICAL_COMPONENT);
+		ModRegistryHelper.registerItem(event, ModItems.SPEAKER);
+		ModRegistryHelper.registerItem(event, ModItems.RUBBER_BAND);
+		ModRegistryHelper.registerItem(event, ModItems.LENS);
 	}
 }

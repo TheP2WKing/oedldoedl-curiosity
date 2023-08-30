@@ -41,6 +41,7 @@ dependencies {
     // oedldoedl
     compile files("src/libs/oedldoedlcore-1.12.2-3.0.0.jar")
     compile files("src/libs/oedldoedlresources-1.12.2-3.0.0.jar")
+    compile files("src/libs/oedldoedlgear-1.12.2-3.0.0.jar")
 
     // jei
     deobfCompile("curse.maven:jei-238222:4538010")
