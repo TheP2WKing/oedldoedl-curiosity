@@ -69,8 +69,6 @@ item.oedldoedlcuriosity.fake_arrow.name=Fake Arrow
 item.oedldoedlcuriosity.fake_arrow.tip1=Looks stupid. Like you.
 item.oedldoedlcuriosity.googly_eyes.name=Googly Eyes
 item.oedldoedlcuriosity.googly_eyes.tip1=Looks terrifying and sometimes better.
-item.oedldoedlcuriosity.travellers_gloves.name=Travellers Gloves
-item.oedldoedlcuriosity.travellers_gloves.tip1=Handydandy.
 item.oedldoedlcuriosity.devil_tail.name=Devil Tail
 item.oedldoedlcuriosity.devil_tail.tip1=Sairenji...
 item.oedldoedlcuriosity.wooden_box.name=Wooden Box
@@ -105,6 +103,8 @@ item.oedldoedlcuriosity.moustage.name=Moustage
 item.oedldoedlcuriosity.moustage.tip1=Mumbo? McYum?
 item.oedldoedlcuriosity.chainsaw_hat.name=Chainsaw Hat
 item.oedldoedlcuriosity.chainsaw_hat.tip1=Props to SirKabaru.
+item.oedldoedlcuriosity.leaf_headband.name=Leaf Headband
+item.oedldoedlcuriosity.leaf_headband.tip1=Who even likes this show?
 
 item.oedldoedlcuriosity.gremorium_amulet.name=Gremorium Amulet
 item.oedldoedlcuriosity.gremorium_amulet.tip1=The full power of Rias as a bauble.

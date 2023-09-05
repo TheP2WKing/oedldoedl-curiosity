@@ -24,6 +24,8 @@ import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemOedldoedlRing;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemQuartariumAmulet;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemSunglasses;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemToujouriumAmulet;
+import net.thep2wking.oedldoedlcuriosity.content.item.misc.ItemLoadingCase;
+import net.thep2wking.oedldoedlcuriosity.content.item.misc.ItemProLoadingCase;
 import net.thep2wking.oedldoedlcuriosity.model.ModelAmulet;
 import net.thep2wking.oedldoedlcuriosity.model.ModelAnimatedWings;
 import net.thep2wking.oedldoedlcuriosity.model.ModelBlueKyoryuuHorns;
@@ -39,6 +41,7 @@ import net.thep2wking.oedldoedlcuriosity.model.ModelFancySunglasses;
 import net.thep2wking.oedldoedlcuriosity.model.ModelFlatWings;
 import net.thep2wking.oedldoedlcuriosity.model.ModelGlasses;
 import net.thep2wking.oedldoedlcuriosity.model.ModelGooglyEyes;
+import net.thep2wking.oedldoedlcuriosity.model.ModelHeadband;
 import net.thep2wking.oedldoedlcuriosity.model.ModelKittyHeadset;
 import net.thep2wking.oedldoedlcuriosity.model.ModelMeguminHat;
 import net.thep2wking.oedldoedlcuriosity.model.ModelMinepods;
@@ -53,7 +56,6 @@ import net.thep2wking.oedldoedlcuriosity.model.ModelRedKyoryuuHorns;
 import net.thep2wking.oedldoedlcuriosity.model.ModelRing;
 import net.thep2wking.oedldoedlcuriosity.model.ModelStrawHat;
 import net.thep2wking.oedldoedlcuriosity.model.ModelThreeDGlasses;
-import net.thep2wking.oedldoedlcuriosity.model.ModelTravellersGloves;
 import net.thep2wking.oedldoedlcuriosity.model.ModelWoodenBox;
 
 public class ModItems {
@@ -78,6 +80,7 @@ public class ModItems {
 	public static final Item FANCY_SUNGLASSES = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "fancy_sunglasses", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.HEAD, new ModelFancySunglasses(1), false, ModRarities.AQUA, false, 2, 0);
 	public static final Item AMAZING_TECHNICOLOR_GLASSES = new ItemAmazingTechnicolorGlasses(OedldoedlCuriosity.MODID, "amazing_technicolor_glasses", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.HEAD, new ModelGlasses(1), false, MobEffects.NIGHT_VISION, 0, false, ModRarities.LIGHT_PURPLE, true, 1, 0);
 	public static final Item THREE_D_GLASSES = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "3d_glasses", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.HEAD, new ModelThreeDGlasses(1), false, ModRarities.BLUE, false, 1, 0);
+	public static final Item LEAF_HEADBAND = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "leaf_headband", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.HEAD, new ModelHeadband(1), false, ModRarities.AQUA, false, 1, 0);
 	public static final Item MONOCLE = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "monocle", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.HEAD, new ModelMonocle(1), false, ModRarities.GOLD, false, 1, 0);
 	public static final Item GOOGLY_EYES = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "googly_eyes", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.HEAD, new ModelGooglyEyes(1), false, ModRarities.AQUA, false, 1, 0);
 	public static final Item MOUSTAGE = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "moustage", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.HEAD, new ModelMoustage(1), false, ModRarities.YELLOW, false, 1, 0);
@@ -102,16 +105,14 @@ public class ModItems {
 	public static final Item KITAGAWARIUM_AMULET = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "kitagawarium_amulet", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, BaubleType.AMULET, new ModelAmulet(1), true, ModRarities.LIGHT_PURPLE, true, 1, 0);
 
 	public static final Item BALANCED_NECKLACE = new ItemBalancedNecklace(OedldoedlCuriosity.MODID, "balanced_necklace", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, BaubleType.AMULET, new ModelAmulet(1), true, ModRarities.LIGHT_PURPLE, true, 1, 1);
-	
-	public static final Item TRAVELLERS_GLOVES = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "travellers_gloves", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.BODY, new ModelTravellersGloves(1), false, ModRarities.YELLOW, false, 1, 0);
-	
+		
 	public static final Item BASE_RING = new ModItemBaubleBase(OedldoedlCuriosity.MODID, "base_ring", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.RING, new ModelRing(1), false, ModRarities.WHITE, false, 1, 0).setNoRender();
 	public static final Item BEDROCKIUM_RING = new ItemBedrockiumRing(OedldoedlCuriosity.MODID, "bedrockium_ring", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.RING, new ModelRing(1), false, ModRarities.AQUA, false, 1, 0).setNoRender();
 	public static final Item OEDLDOEDL_RING = new ItemOedldoedlRing(OedldoedlCuriosity.MODID, "oedldoedl_ring", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.RING, new ModelRing(1), false, ModRarities.LIGHT_PURPLE, true, 1, 0).setNoRender();
 	public static final Item ANGEL_RING = new ItemAngelRing(OedldoedlCuriosity.MODID, "angel_ring", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.RING, new ModelFlatWings(1), true, ModRarities.YELLOW, false, 1, 0);
 
-	public static final Item LOADING_CASE = new ModItemBase(OedldoedlCuriosity.MODID, "loading_case", OedldoedlCuriosity.TAB, ModRarities.YELLOW, false, 1, 0);
-	public static final Item PRO_LOADING_CASE = new ModItemBase(OedldoedlCuriosity.MODID, "pro_loading_case", OedldoedlCuriosity.TAB, ModRarities.YELLOW, false, 1, 0);
+	public static final Item LOADING_CASE = new ItemLoadingCase(OedldoedlCuriosity.MODID, "loading_case", OedldoedlCuriosity.TAB, ModRarities.YELLOW, false, 1, 0);
+	public static final Item PRO_LOADING_CASE = new ItemProLoadingCase(OedldoedlCuriosity.MODID, "pro_loading_case", OedldoedlCuriosity.TAB, ModRarities.YELLOW, false, 1, 0);
 	public static final Item MAGIC_FABRIC = new ModItemBase(OedldoedlCuriosity.MODID, "magic_fabric", OedldoedlCuriosity.TAB, ModRarities.RED, false, 1, 0);
 	public static final Item SAFETY_PIN = new ModItemBase(OedldoedlCuriosity.MODID, "safety_pin", OedldoedlCuriosity.TAB, ModRarities.YELLOW, false, 1, 0);
 	public static final Item ELECTRICAL_COMPONENT = new ModItemBase(OedldoedlCuriosity.MODID, "electrical_component", OedldoedlCuriosity.TAB, ModRarities.YELLOW, false, 1, 0);

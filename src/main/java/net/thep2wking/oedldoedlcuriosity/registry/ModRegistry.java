@@ -42,6 +42,7 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.FANCY_SUNGLASSES);
 		ModRegistryHelper.registerItem(event, ModItems.AMAZING_TECHNICOLOR_GLASSES);
 		ModRegistryHelper.registerItem(event, ModItems.THREE_D_GLASSES);
+		ModRegistryHelper.registerItem(event, ModItems.LEAF_HEADBAND);
 		ModRegistryHelper.registerItem(event, ModItems.MONOCLE);
 		ModRegistryHelper.registerItem(event, ModItems.GOOGLY_EYES);
 		ModRegistryHelper.registerItem(event, ModItems.MOUSTAGE);
@@ -65,8 +66,6 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.SAKURAJIMARIUM_AMULET);
 		ModRegistryHelper.registerItem(event, ModItems.KITAGAWARIUM_AMULET);
 		ModRegistryHelper.registerItem(event, ModItems.BALANCED_NECKLACE);
-
-		ModRegistryHelper.registerItem(event, ModItems.TRAVELLERS_GLOVES);
 
 		ModRegistryHelper.registerItem(event, ModItems.BASE_RING);
 		ModRegistryHelper.registerItem(event, ModItems.BEDROCKIUM_RING);
