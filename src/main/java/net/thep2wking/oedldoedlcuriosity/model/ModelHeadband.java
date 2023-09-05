@@ -8,7 +8,7 @@ public class ModelHeadband extends ModModelBaubleBase {
 		super(modelSize);
 
 		ModelRenderer bb_main = new ModelRenderer(this);
-		bb_main.setRotationPoint(0, 24.01F, 0.01F);
+		bb_main.setRotationPoint(0, 24.01F, 0.02F);
 		bipedHead.addChild(bb_main);
 		bb_main.setTextureOffset(99, 9).addBox(3.5F, -30.5F, -3.5F, 1, 2, 7, false);
 		bb_main.setTextureOffset(99, 0).addBox(-4.5F, -30.5F, -3.5F, 1, 2, 7, false);

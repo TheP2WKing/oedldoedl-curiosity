@@ -26,6 +26,7 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.RED_KYORYUU_HORNS);
 		ModRegistryHelper.registerItem(event, ModItems.BLUE_KYORYUU_HORNS);
 		ModRegistryHelper.registerItem(event, ModItems.PANTSU);
+		ModRegistryHelper.registerItem(event, ModItems.MEGUMIN_PANTSU);
 		ModRegistryHelper.registerItem(event, ModItems.KITTY_HEADSET);
 		ModRegistryHelper.registerItem(event, ModItems.MINEPODS_MAX);
 		ModRegistryHelper.registerItem(event, ModItems.PYLONE);

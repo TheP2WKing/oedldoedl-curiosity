@@ -35,7 +35,8 @@ public class ModRecipes {
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "cat_ears", new ItemStack(ModItems.CAT_EARS, 1, 0), "A A", "BCB", 'A', "fabricPink", 'B', "fabricWhite", 'C', "safetyPin");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "red_kyoryuu_horns", new ItemStack(ModItems.RED_KYORYUU_HORNS, 1, 0), "A A", "ABA", "ACA", 'A', "bone", 'B', "dyeRed", 'C', "safetyPin");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "blue_kyoryuu_horns", new ItemStack(ModItems.BLUE_KYORYUU_HORNS, 1, 0), "  A", "ABA", "ACA", 'A', "bone", 'B', "dyeBlue", 'C', "safetyPin");
-		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "pantsu", new ItemStack(ModItems.PANTSU, 1, 0), "ABA", " A ", 'A', "fabricBlack", 'B', "fabricWhite");
+		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "pantsu", new ItemStack(ModItems.PANTSU, 1, 0), "ABA", " B ", 'A', "fabricWhite", 'B', "fabricLightBlue");
+		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "megumin_pantsu", new ItemStack(ModItems.MEGUMIN_PANTSU, 1, 0), "ABA", " A ", 'A', "fabricBlack", 'B', "fabricWhite");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "kitty_headset", new ItemStack(ModItems.KITTY_HEADSET, 1, 0), "ABA", "CDC", "AEA", 'A', "fabricPink", 'B', "fabricWhite", 'C', "speaker", 'D', "electricalComponent", 'E', "ingotIron");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "minepods_max", new ItemStack(ModItems.MINEPODS_MAX, 1, 0), "ABA", "CDC", "AEA", 'A', "ingotIron", 'B', "fabricWhite", 'C', "speaker", 'D', "electricalComponent", 'E', new ItemStack(Blocks.STONE_BUTTON, 1, 0));
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "pylone", new ItemStack(ModItems.PYLONE, 1, 0), " A ", "BBB", "AAA", 'A', new ItemStack(Blocks.CONCRETE, 1, 1), 'B', new ItemStack(Blocks.CONCRETE, 1, 0));
