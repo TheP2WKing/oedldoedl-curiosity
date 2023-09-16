@@ -38,6 +38,8 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.FLYING_SHOOTING_BASECAP);
 		ModRegistryHelper.registerItem(event, ModItems.BUNNY_CAP);
 		ModRegistryHelper.registerItem(event, ModItems.STRAW_HAT);
+		ModRegistryHelper.registerItem(event, ModItems.BIRD_NEST);
+		ModRegistryHelper.registerItem(event, ModItems.PLUMBOB);
 		ModRegistryHelper.registerItem(event, ModItems.GLASSES);
 		ModRegistryHelper.registerItem(event, ModItems.SUNGLASSES);
 		ModRegistryHelper.registerItem(event, ModItems.FANCY_SUNGLASSES);

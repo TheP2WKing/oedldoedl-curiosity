@@ -48,6 +48,8 @@ public class ModRecipes {
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "flying_shooting_basecap", new ItemStack(ModItems.FLYING_SHOOTING_BASECAP, 1, 0), "ABA", "ACA", " A ", 'A', "fabricBlack", 'B', "fabricLightGray", 'C', "fabricLightBlue");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "bunny_cap", new ItemStack(ModItems.BUNNY_CAP, 1, 0), "ABA", "ABA", " A ", 'A', "fabricBlack", 'B', "fabricWhite");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "straw_hat", new ItemStack(ModItems.STRAW_HAT, 1, 0), "AAA", "ABA", 'A', "cropWheat", 'B', "rubberBand");
+		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "bird_nest", new ItemStack(ModItems.BIRD_NEST, 1, 0), "ABA", "CAC", 'A', "stickWood", 'B', "egg", 'C', "cropWheat");
+		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "plumbob", new ItemStack(ModItems.PLUMBOB, 1, 0), "A", "B", "C", 'A', "dyeLime", 'B', "gemEmerald", 'C', "dyeGreen");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "glasses", new ItemStack(ModItems.GLASSES, 1, 0), "A A", "ABA", "CDC", 'A', "ingotIron", 'B', "dyeBlack", 'C', "glassesLens", 'D', "nuggetIron");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "sunglasses", new ItemStack(ModItems.SUNGLASSES, 1, 0), " A ", "ABA", " A ", 'A', "dyeBlack", 'B', new ItemStack(ModItems.GLASSES, 1, 0));
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "fancy_sunglasses", new ItemStack(ModItems.FANCY_SUNGLASSES, 1, 0), " A ", "BCD", " A ", 'A', "dyeBrown", 'B', "dyeYellow", 'C', new ItemStack(ModItems.GLASSES, 1, 0), 'D', "dyeGray");
