@@ -1,0 +1,20 @@
+{
+    "variants": {
+        "facing=north": {
+            "model": "oedldoedlcuriosity:bauble_package",
+            "y": 90
+        },
+        "facing=south": {
+            "model": "oedldoedlcuriosity:bauble_package",
+            "y": 270
+        },
+        "facing=east": {
+            "model": "oedldoedlcuriosity:bauble_package",
+            "y": 180
+        },
+        "facing=west": {
+            "model": "oedldoedlcuriosity:bauble_package",
+            "y": 0
+        }
+    }
+}

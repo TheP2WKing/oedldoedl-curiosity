@@ -5,9 +5,12 @@ import javax.annotation.Nonnull;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fluids.FluidRegistry;
+import net.thep2wking.oedldoedlcore.util.ModFluidUtil;
 import net.thep2wking.oedldoedlcore.util.ModLogger;
 import net.thep2wking.oedldoedlcore.util.ModRecipeHelper;
 import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
+import net.thep2wking.oedldoedlcuriosity.init.ModBlocks;
 import net.thep2wking.oedldoedlcuriosity.init.ModItems;
 
 public class ModRecipes {
@@ -22,6 +25,61 @@ public class ModRecipes {
 		ModRecipeHelper.addOreDict("speaker", ModItems.SPEAKER, 0);
 		ModRecipeHelper.addOreDict("rubberBand", ModItems.RUBBER_BAND, 0);
 		ModRecipeHelper.addOreDict("glassesLens", ModItems.LENS, 0);
+
+		ModRecipeHelper.addOreDict("bauble", ModItems.BUNNY_EARS, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.CAT_EARS, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.RED_KYORYUU_HORNS, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.BLUE_KYORYUU_HORNS, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.DEVIL_HORNS, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.PANTSU, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.MEGUMIN_PANTSU, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.KITTY_HEADSET, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.MINEPODS_MAX, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.PYLONE, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.PLUNGER, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.CYLINDER, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.MEGUMIN_HAT, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.CHAINSAW_HAT, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.CROWN, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.FLYING_SHOOTING_BASECAP, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.BUNNY_CAP, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.STRAW_HAT, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.BIRD_NEST, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.PLUMBOB, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.GLASSES, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.SUNGLASSES, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.FANCY_SUNGLASSES, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.AMAZING_TECHNICOLOR_GLASSES, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.THREE_D_GLASSES, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.LEAF_HEADBAND, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.MONOCLE, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.GOOGLY_EYES, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.MOUSTAGE, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.FAKE_ARROW, 0);
+
+		ModRecipeHelper.addOreDict("bauble", ModItems.WOODEN_BOX, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.TRAVELLERS_WINGS, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.DEMONIC_WINGS, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.DEVIL_WINGS, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.DEVIL_TAIL, 0);
+
+		ModRecipeHelper.addOreDict("bauble", ModItems.MINEPODS, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.MINEPODS_PRO, 0);
+
+		ModRecipeHelper.addOreDict("bauble", ModItems.GREMORIUM_AMULET, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.HIMEJIMARIUM_AMULET, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.TOUJOURIUM_AMULET, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.ARGENTORIUM_AMULET, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.QUARTARIUM_AMULET, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.NAGATORIUM_AMULET, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.SAKURAJIMARIUM_AMULET, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.KITAGAWARIUM_AMULET, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.BALANCED_NECKLACE, 0);
+
+		ModRecipeHelper.addOreDict("bauble", ModItems.BASE_RING, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.BEDROCKIUM_RING, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.OEDLDOEDL_RING, 0);
+		ModRecipeHelper.addOreDict("bauble", ModItems.ANGEL_RING, 0);
 	}
 
 	public static void addAmuletRecipe(String modid, @Nonnull ItemStack output, String material) {
@@ -30,6 +88,8 @@ public class ModRecipes {
 
 	public static void registerRecipes() {
 		ModLogger.registeredRecipesLogger(OedldoedlCuriosity.MODID);
+
+		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "bauble_package", new ItemStack(ModBlocks.BAUBLE_PACKAGE, 1, 0), "AAA", "BCB", "AAA", 'A', "slabWood", 'B', "paper", 'C', "ringBase");
 
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "bunny_ears", new ItemStack(ModItems.BUNNY_EARS, 1, 0), "A A", "A A", "ABA", 'A', "fabricBlack", 'B', "safetyPin");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "cat_ears", new ItemStack(ModItems.CAT_EARS, 1, 0), "A A", "BCB", 'A', "fabricPink", 'B', "fabricWhite", 'C', "safetyPin");
@@ -54,7 +114,9 @@ public class ModRecipes {
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "sunglasses", new ItemStack(ModItems.SUNGLASSES, 1, 0), " A ", "ABA", " A ", 'A', "dyeBlack", 'B', new ItemStack(ModItems.GLASSES, 1, 0));
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "fancy_sunglasses", new ItemStack(ModItems.FANCY_SUNGLASSES, 1, 0), " A ", "BCD", " A ", 'A', "dyeBrown", 'B', "dyeYellow", 'C', new ItemStack(ModItems.GLASSES, 1, 0), 'D', "dyeGray");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "amazing_technicolor_glasses", new ItemStack(ModItems.AMAZING_TECHNICOLOR_GLASSES, 1, 0), "ABC", "DEF", "GHI", 'A', "dyeYellow", 'B', "dyeOrange", 'C', "dyeRed", 'D', "dyeLime", 'E', new ItemStack(ModItems.GLASSES, 1, 0), 'F', "dyeLightBlue", 'G', "dyePurple", 'H', "dyePink", 'I', "dyeBlue");
-		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "3d_sunglasses", new ItemStack(ModItems.THREE_D_GLASSES, 1, 0), " A ", "BCD", " A ", 'A', "dyeWhite", 'B', "dyeRed", 'C', new ItemStack(ModItems.GLASSES, 1, 0), 'D', "dyeBlue");
+		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "3d_glasses", new ItemStack(ModItems.THREE_D_GLASSES, 1, 0), " A ", "BCD", " A ", 'A', "dyeWhite", 'B', "dyeRed", 'C', new ItemStack(ModItems.GLASSES, 1, 0), 'D', "dyeBlue");
+		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "thug_life_glasses", new ItemStack(ModItems.THUG_LIFE_GLASSES, 1, 0), " A ", "BCD", " A ", 'A', "dyeBlack", 'B', ModFluidUtil.addFluidBucket(FluidRegistry.WATER), 'C', new ItemStack(ModItems.GLASSES, 1, 0), 'D', new ItemStack(Blocks.WEB, 1, 0));
+		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "joint", new ItemStack(ModItems.JOINT, 1, 0), "AB ", "BAB", " BA", 'A', "grass", 'B', "paper");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "leaf_headband", new ItemStack(ModItems.LEAF_HEADBAND, 1, 0), "AAA", "BCB", "AAA", 'A', "fabricBlack", 'B', "ingotIron", 'C', "dyeGray");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "monocle", new ItemStack(ModItems.MONOCLE, 1, 0), " A ", "ABA", " AC", 'A', "ingotGold", 'B', "paneGlass", 'C', "nuggetGold");
 		ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "googly_eyes", new ItemStack(ModItems.GOOGLY_EYES, 1, 0), "ABA", "CDC", "D D", 'A', "fabricBlack", 'B', "safetyPin", 'C', new ItemStack(Items.SPIDER_EYE, 1, 0), 'D', "fabricWhite");

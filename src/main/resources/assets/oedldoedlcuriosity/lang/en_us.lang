@@ -5,10 +5,10 @@ itemGroup.oedldoedlcuriosity.name=§dOedldoedl Curiosity
 item.oedldoedlcore.curiosity_icon.annotation3=Version: §e1.12.2-3.0.0
 
 # blocks
-"tile.oedldoedlcuriosity.curio_package.name=Curio Package
-"tile.oedldoedlcuriosity.curio_package.tip1=Thanks Jeffy for the fast delivery.
-"tile.oedldoedlcuriosity.curio_package.tip2=What is inside for you?
-"tile.oedldoedlcuriosity.curio_package.annotation1.name=Contents: \u00A7eCurios
+tile.oedldoedlcuriosity.bauble_package.name=Bauble Package
+tile.oedldoedlcuriosity.bauble_package.annotation1=Contents: §eBaubles
+tile.oedldoedlcuriosity.bauble_package.tip1=Thanks for the quick delivery, Jeffy.
+tile.oedldoedlcuriosity.bauble_package.tip2=What is inside for you?
 
 # baubles
 item.oedldoedlcuriosity.flying_shooting_basecap.name=Flying Shooting Basecap
@@ -112,6 +112,12 @@ item.oedldoedlcuriosity.plumbob.tip1=You are the real NPC!
 item.oedldoedlcuriosity.bird_nest.name=Bird Nest
 item.oedldoedlcuriosity.bird_nest.tip1=Is it a bird? Is it a bird breeder?
 item.oedldoedlcuriosity.bird_nest.tip2=No! It is just Flofinos hair!
+item.oedldoedlcuriosity.thug_life_glasses.name=Thug Life Glasses
+item.oedldoedlcuriosity.thug_life_glasses.tip1=La-da-da-da-dah...
+item.oedldoedlcuriosity.joint.name=Joint
+item.oedldoedlcuriosity.joint.tip1=As long it is legal-ish.
+item.oedldoedlcuriosity.devil_horns.name=Devil Horns
+item.oedldoedlcuriosity.devil_horns.tip1=No cats?
 
 item.oedldoedlcuriosity.gremorium_amulet.name=Gremorium Amulet
 item.oedldoedlcuriosity.gremorium_amulet.tip1=The full power of Rias as a bauble.

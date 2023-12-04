@@ -1,0 +1,13 @@
+{
+    "parent": "block/orientable",
+    "textures": 
+    {
+        "particle": "oedldoedlcuriosity:blocks/bauble_package_top_bottom",
+        "north": "oedldoedlcuriosity:blocks/bauble_package_side_content",
+        "south": "oedldoedlcuriosity:blocks/bauble_package_side_content",
+        "east": "oedldoedlcuriosity:blocks/bauble_package_side",
+        "west": "oedldoedlcuriosity:blocks/bauble_package_side",
+        "up": "oedldoedlcuriosity:blocks/bauble_package_top_bottom",
+        "down": "oedldoedlcuriosity:blocks/bauble_package_top_bottom"
+    }
+}

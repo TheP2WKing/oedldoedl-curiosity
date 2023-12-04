@@ -8,6 +8,7 @@ import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.thep2wking.oedldoedlcore.util.ModLogger;
 import net.thep2wking.oedldoedlcore.util.ModRegistryHelper;
 import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
+import net.thep2wking.oedldoedlcuriosity.init.ModBlocks;
 import net.thep2wking.oedldoedlcuriosity.init.ModItems;
 
 @Mod.EventBusSubscriber
@@ -15,16 +16,21 @@ public class ModRegistry {
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event) {
 		ModLogger.registeredBlocksLogger(OedldoedlCuriosity.MODID);
+
+		ModRegistryHelper.registerBlock(event, ModBlocks.BAUBLE_PACKAGE);
 	}
 
 	@SubscribeEvent
 	public static void onItemRegister(RegistryEvent.Register<Item> event) {
 		ModLogger.registeredItemsLogger(OedldoedlCuriosity.MODID);
 
+		ModRegistryHelper.registerItemBlock(event, ModItems.BAUBLE_PACKAGE);
+
 		ModRegistryHelper.registerItem(event, ModItems.BUNNY_EARS);
 		ModRegistryHelper.registerItem(event, ModItems.CAT_EARS);
 		ModRegistryHelper.registerItem(event, ModItems.RED_KYORYUU_HORNS);
 		ModRegistryHelper.registerItem(event, ModItems.BLUE_KYORYUU_HORNS);
+		ModRegistryHelper.registerItem(event, ModItems.DEVIL_HORNS);
 		ModRegistryHelper.registerItem(event, ModItems.PANTSU);
 		ModRegistryHelper.registerItem(event, ModItems.MEGUMIN_PANTSU);
 		ModRegistryHelper.registerItem(event, ModItems.KITTY_HEADSET);
@@ -45,6 +51,8 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.FANCY_SUNGLASSES);
 		ModRegistryHelper.registerItem(event, ModItems.AMAZING_TECHNICOLOR_GLASSES);
 		ModRegistryHelper.registerItem(event, ModItems.THREE_D_GLASSES);
+		ModRegistryHelper.registerItem(event, ModItems.THUG_LIFE_GLASSES);
+		ModRegistryHelper.registerItem(event, ModItems.JOINT);
 		ModRegistryHelper.registerItem(event, ModItems.LEAF_HEADBAND);
 		ModRegistryHelper.registerItem(event, ModItems.MONOCLE);
 		ModRegistryHelper.registerItem(event, ModItems.GOOGLY_EYES);
