@@ -17,25 +17,31 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
-import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 import net.thep2wking.oedldoedlcuriosity.init.ModItems;
+import net.thep2wking.oedldoedlcuriosity.model.ModelAmulet;
 
-@Mod.EventBusSubscriber
 public class ItemToujouriumAmulet extends ModItemBaubleBase {
 	public ItemToujouriumAmulet(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
+		MinecraftForge.EVENT_BUS.register(this);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return new ModelAmulet();
 	}
 
 	@Override
@@ -44,8 +50,7 @@ public class ItemToujouriumAmulet extends ModItemBaubleBase {
 		player.setAir(300);
 		player.fallDistance = 0;
 
-		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION,
-				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 0, false, false));
+		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, false, false));
 		player.addPotionEffect(new PotionEffect(MobEffects.SPEED,
 				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 5, false, false));
 	}
@@ -101,14 +106,10 @@ public class ItemToujouriumAmulet extends ModItemBaubleBase {
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
 			ModTooltips.addPotionEffect(tooltip, MobEffects.SPEED.getName(), false, 6,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".toujourium_amulet",
-					1);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".toujourium_amulet",
-					2);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".toujourium_amulet",
-					3);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".toujourium_amulet",
-					4);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 2);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 3);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 4);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}

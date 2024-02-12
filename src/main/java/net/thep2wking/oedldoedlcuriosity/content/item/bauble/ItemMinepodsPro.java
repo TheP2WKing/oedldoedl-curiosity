@@ -20,13 +20,20 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
+import net.thep2wking.oedldoedlcuriosity.model.ModelMinepodsPro;
 
 public class ItemMinepodsPro extends ModItemBaubleBase {
 	public ItemMinepodsPro(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return new ModelMinepodsPro();
 	}
 
 	@Override
@@ -53,13 +60,13 @@ public class ItemMinepodsPro extends ModItemBaubleBase {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_INFO);
 		}
 
-		if (ModTooltips.showEffectTip() && CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_EFFECTS) {
+		if (ModTooltips.showEffectTip()) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.JUMP_BOOST.getName(), false, 0 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.JUMP_BOOST.getName(), false, 1,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.SPEED.getName(), false, 1 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.SPEED.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-		} else if (ModTooltips.showEffectTipKey() && CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_EFFECTS) {
+		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
 	}

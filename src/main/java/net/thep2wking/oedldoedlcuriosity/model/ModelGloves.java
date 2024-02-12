@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelGloves extends ModModelBaubleBase {
-	public ModelGloves(float modelSize) {
-		super(modelSize);
-
+	public ModelGloves() {
 		ModelRenderer left = new ModelRenderer(this);
 		ModelRenderer right = new ModelRenderer(this);
 		left.setRotationPoint(5, 22, 0);

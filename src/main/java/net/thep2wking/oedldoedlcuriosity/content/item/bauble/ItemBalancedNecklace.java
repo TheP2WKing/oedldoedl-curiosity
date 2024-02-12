@@ -17,24 +17,30 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
-import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 import net.thep2wking.oedldoedlcuriosity.init.ModItems;
+import net.thep2wking.oedldoedlcuriosity.model.ModelAmulet;
 
-@Mod.EventBusSubscriber
 public class ItemBalancedNecklace extends ModItemBaubleBase {
 	public ItemBalancedNecklace(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
+		MinecraftForge.EVENT_BUS.register(this);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return new ModelAmulet();
 	}
 
 	@Override
@@ -90,12 +96,9 @@ public class ItemBalancedNecklace extends ModItemBaubleBase {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
 			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 0 + 1,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".balanced_necklace",
-					1);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".balanced_necklace",
-					2);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".balanced_necklace",
-					3);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 2);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 3);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}

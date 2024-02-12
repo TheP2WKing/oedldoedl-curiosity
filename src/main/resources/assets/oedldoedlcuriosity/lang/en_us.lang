@@ -2,7 +2,7 @@
 itemGroup.oedldoedlcuriosity.name=§dOedldoedl Curiosity
 
 # icons
-item.oedldoedlcore.curiosity_icon.annotation3=Version: §e1.12.2-3.0.0
+item.oedldoedlcore.curiosity_icon.annotation3=Version: §e1.12.2-4.0.0
 
 # blocks
 tile.oedldoedlcuriosity.bauble_package.name=Bauble Package
@@ -83,8 +83,8 @@ item.oedldoedlcuriosity.devil_wings.name=Devil Wings
 item.oedldoedlcuriosity.devil_wings.tip1=Even more demonic.
 item.oedldoedlcuriosity.3d_glasses.name=3D Glasses
 item.oedldoedlcuriosity.3d_glasses.tip1=Waifus are still 2D, sorry.
-item.oedldoedlcuriosity.cylinder.name=Cylinder
-item.oedldoedlcuriosity.cylinder.tip1=For the rich only.
+item.oedldoedlcuriosity.top_hat.name=Top Hat
+item.oedldoedlcuriosity.top_hat.tip1=For the rich only.
 item.oedldoedlcuriosity.balanced_necklace.name=Balanced Necklace
 item.oedldoedlcuriosity.balanced_necklace.annotation1=Balance: §dCMXCIX
 item.oedldoedlcuriosity.balanced_necklace.tip1=Necklaces are way too unbalanced...?
@@ -109,13 +109,14 @@ item.oedldoedlcuriosity.leaf_headband.name=Leaf Headband
 item.oedldoedlcuriosity.leaf_headband.tip1=Who even likes this show?
 item.oedldoedlcuriosity.plumbob.name=Plumbob
 item.oedldoedlcuriosity.plumbob.tip1=You are the real NPC!
-item.oedldoedlcuriosity.bird_nest.name=Bird Nest
-item.oedldoedlcuriosity.bird_nest.tip1=Is it a bird? Is it a bird breeder?
-item.oedldoedlcuriosity.bird_nest.tip2=No! It is just Flofinos hair!
+item.oedldoedlcuriosity.birds_nest.name=Birds Nest
+item.oedldoedlcuriosity.birds_nest.tip1=Is it a bird? Is it a bird breeder?
+item.oedldoedlcuriosity.birds_nest.tip2=No! It is just Flofinos hair!
 item.oedldoedlcuriosity.thug_life_glasses.name=Thug Life Glasses
 item.oedldoedlcuriosity.thug_life_glasses.tip1=La-da-da-da-dah...
 item.oedldoedlcuriosity.joint.name=Joint
 item.oedldoedlcuriosity.joint.tip1=As long it is legal-ish.
+item.oedldoedlcuriosity.joint.effects1=High §e§o(Sneak)
 item.oedldoedlcuriosity.devil_horns.name=Devil Horns
 item.oedldoedlcuriosity.devil_horns.tip1=No cats?
 

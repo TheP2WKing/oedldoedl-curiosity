@@ -18,8 +18,8 @@ public class ModModelBaubleBase extends ModelBiped {
 	 * @param textureWidth  int
 	 * @param textureHeight int
 	 */
-	public ModModelBaubleBase(float modelSize, float modelOffset, int textureWidth, int textureHeight) {
-		super(modelSize, modelOffset, textureWidth, textureHeight);
+	public ModModelBaubleBase(float modelOffset, int textureWidth, int textureHeight) {
+		super(1, modelOffset, textureWidth, textureHeight);
 	}
 
 	/**
@@ -27,8 +27,8 @@ public class ModModelBaubleBase extends ModelBiped {
 	 * @param modelSize   float
 	 * @param modelOffset float
 	 */
-	public ModModelBaubleBase(float modelSize, float modelOffset) {
-		super(modelSize, modelOffset, 128, 128);
+	public ModModelBaubleBase(float modelOffset) {
+		super(1, modelOffset, 128, 128);
 	}
 
 	/**
@@ -36,8 +36,8 @@ public class ModModelBaubleBase extends ModelBiped {
 	 * @param modelSize   float
 	 * @param modelOffset float
 	 */
-	public ModModelBaubleBase(float modelSize) {
-		super(modelSize, 0, 128, 128);
+	public ModModelBaubleBase() {
+		super(1, 0, 128, 128);
 	}
 
 	@Override
@@ -47,6 +47,7 @@ public class ModModelBaubleBase extends ModelBiped {
 		super.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
 	}
 
+	@SideOnly(Side.CLIENT)
 	public void setRotateAngle(ModelRenderer modelRenderer, float x, float y, float z) {
 		modelRenderer.rotateAngleX = x;
 		modelRenderer.rotateAngleY = y;

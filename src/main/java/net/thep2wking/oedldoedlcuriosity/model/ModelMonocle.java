@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelMonocle extends ModModelBaubleBase {
-	public ModelMonocle(float modelSize) {
-		super(modelSize);
-
+	public ModelMonocle() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 25.1F, 0);
 		bipedHead.addChild(bb_main);

@@ -10,9 +10,7 @@ public class ModelFlatWings extends ModModelBaubleBase {
 	ModelRenderer cube_r1 = new ModelRenderer(this);
 	ModelRenderer cube_r2 = new ModelRenderer(this);
 
-	public ModelFlatWings(float modelSize) {
-		super(modelSize);
-
+	public ModelFlatWings() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 25, -0.1F);
 		bipedBody.addChild(bb_main);

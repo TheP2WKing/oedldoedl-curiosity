@@ -4,8 +4,8 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelMeguminHat extends ModModelBaubleBase {
-	public ModelMeguminHat(float modelSize) {
-		super(modelSize, 0, 256, 256);
+	public ModelMeguminHat() {
+		super(0, 256, 256);
 
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 24.55F, 0.01F);

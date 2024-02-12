@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelBunnyEars extends ModModelBaubleBase {
-	public ModelBunnyEars(float modelSize) {
-		super(modelSize);
-
+	public ModelBunnyEars() {
 		ModelRenderer model1 = new ModelRenderer(this);
 		model1.setRotationPoint(0, 24, 0.5F);
 		bipedHead.addChild(model1);

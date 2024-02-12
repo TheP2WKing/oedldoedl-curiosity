@@ -31,7 +31,6 @@ import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBauble {
     public final SoundEvent sound;
     public final BaubleType baubleType;
-    public ModelBiped baubleModel;
     public final boolean isBodyModel;
 
     /**
@@ -41,7 +40,6 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
      * @param tab             {@link CreativeTabs}
      * @param sound           {@link SoundEvent}
      * @param baubleType      {@link BaubleType}
-     * @param baubleModel     {@link ModelBiped}
      * @param isBodyModel     boolean
      * @param rarity          {@link EnumRarity}
      * @param hasEffect       boolean
@@ -49,12 +47,11 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
      * @param annotationLines int
      */
     public ModItemBaubleBase(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-            ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+            boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
             int annotationLines) {
         super(modid, name, tab, rarity, hasEffect, tooltipLines, annotationLines);
         this.sound = sound;
         this.baubleType = baubleType;
-        this.baubleModel = baubleModel;
         this.isBodyModel = isBodyModel;
         setMaxStackSize(1);
     }
@@ -74,7 +71,6 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
         return baubleType;
     }
 
-    @SuppressWarnings("null")
     @Override
     public ActionResult<ItemStack> onItemRightClick(World world, EntityPlayer player, EnumHand hand) {
         if (!world.isRemote) {
@@ -107,10 +103,15 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
         this.getEquipmentSound(player);
     }
 
+    @SideOnly(Side.CLIENT)
+    public ModelBiped baubleModel;
+
+    @SideOnly(Side.CLIENT)
     public ModelBiped getBaubleModel() {
-        return baubleModel;
+        return new ModelBiped();
     }
 
+    @SideOnly(Side.CLIENT)
     public ResourceLocation getTexture() {
         return new ResourceLocation(modid, "textures/models/bauble/" + name + ".png");
     }

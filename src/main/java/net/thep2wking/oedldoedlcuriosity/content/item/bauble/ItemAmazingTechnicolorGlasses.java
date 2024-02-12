@@ -19,21 +19,28 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
-import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleEffectBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
+import net.thep2wking.oedldoedlcuriosity.model.ModelGlasses;
 
 public class ItemAmazingTechnicolorGlasses extends ModItemBaubleEffectBase {
 	public ItemAmazingTechnicolorGlasses(String modid, String name, CreativeTabs tab, SoundEvent sound,
-			BaubleType baubleType, ModelBiped baubleModel, boolean isBodyModel, Potion effect, int amplifier,
+			BaubleType baubleType, boolean isBodyModel, Potion effect, int amplifier,
 			boolean isDebuff, EnumRarity rarity, boolean hasEffect, int tooltipLines, int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, effect, amplifier, isDebuff, rarity,
+		super(modid, name, tab, sound, baubleType, isBodyModel, effect, amplifier, isDebuff, rarity,
 				hasEffect, tooltipLines, annotationLines);
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return new ModelGlasses();
+	}
+
+	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
-		player.addPotionEffect(new PotionEffect(effect, 400, amplifier, false, false));
+		player.addPotionEffect(new PotionEffect(effect, CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION,
+				amplifier, false, false));
 		player.removePotionEffect(MobEffects.BLINDNESS);
 	}
 
@@ -57,8 +64,7 @@ public class ItemAmazingTechnicolorGlasses extends ModItemBaubleEffectBase {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
 			ModTooltips.addPotionEffect(tooltip, effect.getName(), isDebuff, amplifier + 1,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addCustomEffectInformation(tooltip,
-					"item." + OedldoedlCuriosity.MODID + ".amazing_technicolor_glasses", 1);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}

@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelChainsawHat extends ModModelBaubleBase {
-	public ModelChainsawHat(float modelSize) {
-		super(modelSize);
-
+	public ModelChainsawHat() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 0.01F, 0.01F);
 		bipedHead.addChild(bb_main);

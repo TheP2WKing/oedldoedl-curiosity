@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelWoodenBox extends ModModelBaubleBase {
-	public ModelWoodenBox(float modelSize) {
-		super(modelSize);
-
+	public ModelWoodenBox() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 24, 0);
 		bipedBody.addChild(bb_main);

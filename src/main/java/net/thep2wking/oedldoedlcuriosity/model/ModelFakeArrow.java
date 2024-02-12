@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelFakeArrow extends ModModelBaubleBase {
-	public ModelFakeArrow(float modelSize) {
-		super(modelSize);
-
+	public ModelFakeArrow() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bipedHead.addChild(bb_main);
 		bb_main.setRotationPoint(0, 24, 0);

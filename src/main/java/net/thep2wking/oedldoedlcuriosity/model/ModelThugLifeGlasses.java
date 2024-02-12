@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelThugLifeGlasses extends ModModelBaubleBase {
-	public ModelThugLifeGlasses(float modelSize) {
-		super(modelSize);
-
+	public ModelThugLifeGlasses() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		ModelRenderer bb_main_r1 = new ModelRenderer(this);
 		ModelRenderer bb_main_r2 = new ModelRenderer(this);

@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelDevilHorns extends ModModelBaubleBase {
-	public ModelDevilHorns(float modelSize) {
-		super(modelSize);
-
+	public ModelDevilHorns() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		ModelRenderer cube_r1 = new ModelRenderer(this);;
 		ModelRenderer cube_r2 = new ModelRenderer(this);;

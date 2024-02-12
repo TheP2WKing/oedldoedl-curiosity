@@ -17,21 +17,33 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
-import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
+import net.thep2wking.oedldoedlcuriosity.model.ModelFlatWings;
 
 public class ItemAngelRing extends ModItemBaubleBase {
 	public ItemAngelRing(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return new ModelFlatWings();
+	}
+
+	@Override
+	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
+		EntityPlayer entity = (EntityPlayer) player;
+		startFlying(entity);
 	}
 
 	public void startFlying(EntityPlayer player) {
 		player.capabilities.allowFlying = true;
-		if (!player.getEntityWorld().isRemote) {
+		if (!player.getEntityWorld().isRemote && CuriosityConfig.CONTENT.ANGEL_RING_FLIGHT) {
 			player.sendPlayerAbilities();
 		}
 	}
@@ -47,21 +59,19 @@ public class ItemAngelRing extends ModItemBaubleBase {
 	@Override
 	public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
 		this.getEquipmentSound(player);
-        if (player instanceof EntityPlayer) 
-        {
-            EntityPlayer entity = (EntityPlayer) player;
-            startFlying(entity);
-        }
+		if (player instanceof EntityPlayer) {
+			EntityPlayer entity = (EntityPlayer) player;
+			startFlying(entity);
+		}
 	}
 
 	@Override
 	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
 		this.getEquipmentSound(player);
-		if (player instanceof EntityPlayer) 
-        {
-            EntityPlayer entity = (EntityPlayer) player;
-            stopFlying(entity);
-        }
+		if (player instanceof EntityPlayer) {
+			EntityPlayer entity = (EntityPlayer) player;
+			stopFlying(entity);
+		}
 	}
 
 	@Override
@@ -80,11 +90,10 @@ public class ItemAngelRing extends ModItemBaubleBase {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_INFO);
 		}
 
-		if (ModTooltips.showEffectTip() && CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_EFFECTS) {
+		if (ModTooltips.showEffectTip() && CuriosityConfig.CONTENT.ANGEL_RING_FLIGHT) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addCustomEffectInformation(tooltip,
-					"item." + OedldoedlCuriosity.MODID + ".angel_ring", 1);
-		} else if (ModTooltips.showEffectTipKey() && CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_EFFECTS) {
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
+		} else if (ModTooltips.showEffectTipKey() && CuriosityConfig.CONTENT.ANGEL_RING_FLIGHT) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
 	}

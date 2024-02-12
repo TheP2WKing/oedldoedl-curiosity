@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelMinepodsPro extends ModModelBaubleBase {
-	public ModelMinepodsPro(float modelSize) {
-		super(modelSize);
-
+	public ModelMinepodsPro() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 25.1F, 0);

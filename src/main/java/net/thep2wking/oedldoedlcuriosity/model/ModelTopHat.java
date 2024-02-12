@@ -3,10 +3,8 @@ package net.thep2wking.oedldoedlcuriosity.model;
 import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
-public class ModelCylinder extends ModModelBaubleBase {
-	public ModelCylinder(float modelSize) {
-		super(modelSize);
-
+public class ModelTopHat extends ModModelBaubleBase {
+	public ModelTopHat() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 24, 0.01F);
 		bipedHead.addChild(bb_main);

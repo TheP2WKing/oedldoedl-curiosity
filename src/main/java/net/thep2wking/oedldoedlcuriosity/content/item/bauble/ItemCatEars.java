@@ -14,23 +14,29 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
-import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
-import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.init.ModItems;
+import net.thep2wking.oedldoedlcuriosity.model.ModelCatEars;
 
-@Mod.EventBusSubscriber
 public class ItemCatEars extends ModItemBaubleBase {
 	public ItemCatEars(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
+		MinecraftForge.EVENT_BUS.register(this);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return new ModelCatEars();
 	}
 
 	@SubscribeEvent
@@ -62,7 +68,7 @@ public class ItemCatEars extends ModItemBaubleBase {
 		if (ModTooltips.showEffectTip())
 		{
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".cat_ears", 1);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
 		}
 		else if (ModTooltips.showEffectTipKey())
 		{

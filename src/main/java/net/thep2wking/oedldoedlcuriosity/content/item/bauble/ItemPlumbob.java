@@ -14,12 +14,13 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
+import net.thep2wking.oedldoedlcuriosity.model.ModelPlumbob;
 
 public class ItemPlumbob extends ModItemBaubleBase {
 	public ItemPlumbob(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
 	}
 
@@ -29,6 +30,12 @@ public class ItemPlumbob extends ModItemBaubleBase {
         hasBaubleRender = false;
         return this;
     }
+
+    @Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return new ModelPlumbob();
+	}
 
     @Override
     @SideOnly(Side.CLIENT)

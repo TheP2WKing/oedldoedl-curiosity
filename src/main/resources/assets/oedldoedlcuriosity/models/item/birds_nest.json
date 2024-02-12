@@ -2,6 +2,6 @@
 	"parent": "item/generated",
 	"textures": 
 	{
-		"layer0": "oedldoedlcuriosity:items/bird_nest"
+		"layer0": "oedldoedlcuriosity:items/birds_nest"
 	}
 }

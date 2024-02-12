@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelStrawHat extends ModModelBaubleBase {
-	public ModelStrawHat(float modelSize) {
-		super(modelSize);
-
+	public ModelStrawHat() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 24.1F, 0.01F);
 		bipedHead.addChild(bb_main);

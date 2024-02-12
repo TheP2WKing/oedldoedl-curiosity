@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelJoint extends ModModelBaubleBase {
-	public ModelJoint(float modelSize) {
-		super(modelSize);
-
+	public ModelJoint() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		ModelRenderer cube_r1 = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 24.5F, 0.05F);

@@ -2,6 +2,7 @@ package net.thep2wking.oedldoedlcuriosity.registry;
 
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraftforge.client.event.ModelRegistryEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
@@ -13,6 +14,11 @@ import net.thep2wking.oedldoedlcuriosity.init.ModItems;
 
 @Mod.EventBusSubscriber
 public class ModRegistry {
+	@SubscribeEvent
+	public static void onModelRegister(ModelRegistryEvent event) {
+		ModRegistryHelper.registerModels(event, OedldoedlCuriosity.MODID);
+	}
+	
 	@SubscribeEvent
 	public static void onBlockRegister(RegistryEvent.Register<Block> event) {
 		ModLogger.registeredBlocksLogger(OedldoedlCuriosity.MODID);
@@ -37,14 +43,14 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.MINEPODS_MAX);
 		ModRegistryHelper.registerItem(event, ModItems.PYLONE);
 		ModRegistryHelper.registerItem(event, ModItems.PLUNGER);
-		ModRegistryHelper.registerItem(event, ModItems.CYLINDER);
+		ModRegistryHelper.registerItem(event, ModItems.TOP_HAT);
 		ModRegistryHelper.registerItem(event, ModItems.MEGUMIN_HAT);
 		ModRegistryHelper.registerItem(event, ModItems.CHAINSAW_HAT);
 		ModRegistryHelper.registerItem(event, ModItems.CROWN);
 		ModRegistryHelper.registerItem(event, ModItems.FLYING_SHOOTING_BASECAP);
 		ModRegistryHelper.registerItem(event, ModItems.BUNNY_CAP);
 		ModRegistryHelper.registerItem(event, ModItems.STRAW_HAT);
-		ModRegistryHelper.registerItem(event, ModItems.BIRD_NEST);
+		ModRegistryHelper.registerItem(event, ModItems.BIRDS_NEST);
 		ModRegistryHelper.registerItem(event, ModItems.PLUMBOB);
 		ModRegistryHelper.registerItem(event, ModItems.GLASSES);
 		ModRegistryHelper.registerItem(event, ModItems.SUNGLASSES);

@@ -17,15 +17,21 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
-import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
+import net.thep2wking.oedldoedlcuriosity.model.ModelGlasses;
 
 public class ItemSunglasses extends ModItemBaubleBase {
 	public ItemSunglasses(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return new ModelGlasses();
 	}
 
 	@Override
@@ -51,7 +57,7 @@ public class ItemSunglasses extends ModItemBaubleBase {
 
 		if (ModTooltips.showEffectTip()) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".sunglasses", 1);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}

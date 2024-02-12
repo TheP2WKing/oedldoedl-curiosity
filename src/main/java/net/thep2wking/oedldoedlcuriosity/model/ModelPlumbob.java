@@ -7,9 +7,7 @@ import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 public class ModelPlumbob extends ModModelBaubleBase {
 	ModelRenderer bb_main = new ModelRenderer(this);
 
-	public ModelPlumbob(float modelSize) {
-		super(modelSize);
-		bipedHead.addChild(bb_main);
+	public ModelPlumbob() {		bipedHead.addChild(bb_main);
 		bb_main.setRotationPoint(0, 24, 0);
 		bb_main.setTextureOffset(124, 9).addBox(-0.5F, -44.75F, -0.5F, 1, 1, 1, false);
 		bb_main.setTextureOffset(124, 4).addBox(-0.5F, -37.5F, -0.5F, 1, 1, 1, false);

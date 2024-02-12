@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelDevilTail extends ModModelBaubleBase {
-	public ModelDevilTail(float modelSize) {
-		super(modelSize);
-
+	public ModelDevilTail() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 22.5F, 0);
 		bipedBody.addChild(bb_main);

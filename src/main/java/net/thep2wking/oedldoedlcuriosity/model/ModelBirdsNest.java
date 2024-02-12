@@ -3,10 +3,8 @@ package net.thep2wking.oedldoedlcuriosity.model;
 import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
-public class ModelBirdNest extends ModModelBaubleBase {
-	public ModelBirdNest(float modelSize) {
-		super(modelSize);
-
+public class ModelBirdsNest extends ModModelBaubleBase {
+	public ModelBirdsNest() {
 		ModelRenderer nest = new ModelRenderer(this);
 		bipedHead.addChild(nest);
 		nest.setRotationPoint(0, 24, 0);

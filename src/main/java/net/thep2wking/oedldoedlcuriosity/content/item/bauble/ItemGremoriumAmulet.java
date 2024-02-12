@@ -19,16 +19,22 @@ import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
-import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
+import net.thep2wking.oedldoedlcuriosity.model.ModelAmulet;
 
 public class ItemGremoriumAmulet extends ModItemBaubleBase {
 	public ItemGremoriumAmulet(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return new ModelAmulet();
 	}
 
 	@Override
@@ -37,12 +43,12 @@ public class ItemGremoriumAmulet extends ModItemBaubleBase {
 		player.stepHeight = 1.1f;
 		player.setAir(300);
 		entity.capabilities.setFlySpeed(0.1F);
+		startFlying(entity);
 		player.removePotionEffect(MobEffects.POISON);
 		player.removePotionEffect(MobEffects.INSTANT_DAMAGE);
 		player.removePotionEffect(MobEffects.WITHER);
 
-		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION,
-				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 0, false, false));
+		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, false, false));
 		player.addPotionEffect(new PotionEffect(MobEffects.HASTE,
 				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 1, false, false));
 	}
@@ -108,14 +114,10 @@ public class ItemGremoriumAmulet extends ModItemBaubleBase {
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
 			ModTooltips.addPotionEffect(tooltip, MobEffects.HASTE.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".gremorium_amulet",
-					1);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".gremorium_amulet",
-					2);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".gremorium_amulet",
-					3);
-			ModTooltips.addCustomEffectInformation(tooltip, "item." + OedldoedlCuriosity.MODID + ".gremorium_amulet",
-					4);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 2);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 3);
+					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 4);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}

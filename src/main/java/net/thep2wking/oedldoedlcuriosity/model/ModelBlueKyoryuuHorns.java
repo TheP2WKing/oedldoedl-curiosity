@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelBlueKyoryuuHorns extends ModModelBaubleBase {
-	public ModelBlueKyoryuuHorns(float modelSize) {
-		super(modelSize);
-
+	public ModelBlueKyoryuuHorns() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 24, 0);
 		bipedHead.addChild(bb_main);

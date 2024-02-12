@@ -4,9 +4,7 @@ import net.minecraft.client.model.ModelRenderer;
 import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 
 public class ModelMoustage extends ModModelBaubleBase {
-	public ModelMoustage(float modelSize) {
-		super(modelSize);
-
+	public ModelMoustage() {
 		ModelRenderer bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 24.5F, 0);
 		bipedHead.addChild(bb_main);

@@ -13,11 +13,8 @@ public class Properties {
 	public final Effects EFFECTS = new Effects();
 
 	public static class Effects {
-		@Config.Name("Bauble Effects Enabled")
-		public boolean BAUBLE_EFFECTS = true;
-
 		@Config.Name("Bauble Base Duration")
 		@Config.RangeInt(min = 10, max = 72000)
-		public int BAUBLE_BASE_DURATION = 400;
+		public int BAUBLE_BASE_DURATION = 200;
 	}
 }

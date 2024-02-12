@@ -19,9 +19,7 @@ public class ModelAnimatedWings extends ModModelBaubleBase {
 	ModelRenderer WingFlangeLeft = new ModelRenderer(this);
 	ModelRenderer WingAuxLeft = new ModelRenderer(this);
 
-	public ModelAnimatedWings(float modelSize) {
-		super(modelSize);
-
+	public ModelAnimatedWings() {
 		bipedBody.addChild(WingBaseRight);
 		bipedBody.addChild(WingBaseLeft);
 

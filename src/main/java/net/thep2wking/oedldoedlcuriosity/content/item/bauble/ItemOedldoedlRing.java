@@ -5,7 +5,6 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import baubles.api.BaubleType;
-import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -23,9 +22,9 @@ import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 
 public class ItemOedldoedlRing extends ModItemBaubleBase {
 	public ItemOedldoedlRing(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
-			ModelBiped baubleModel, boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
+			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
-		super(modid, name, tab, sound, baubleType, baubleModel, isBodyModel, rarity, hasEffect, tooltipLines,
+		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
 	}
 
@@ -71,31 +70,30 @@ public class ItemOedldoedlRing extends ModItemBaubleBase {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_INFO);
 		}
 
-		if (ModTooltips.showEffectTip() && CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_EFFECTS) {
+		if (ModTooltips.showEffectTip()) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.WATER_BREATHING.getName(), false, 0 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.WATER_BREATHING.getName(), false, 1,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.FIRE_RESISTANCE.getName(), false, 0 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.FIRE_RESISTANCE.getName(), false, 1,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.REGENERATION.getName(), false, 1 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.REGENERATION.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.JUMP_BOOST.getName(), false, 1 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.JUMP_BOOST.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 0 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 1, 400);
+			ModTooltips.addPotionEffect(tooltip, MobEffects.RESISTANCE.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.RESISTANCE.getName(), false, 1 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.SATURATION.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.SATURATION.getName(), false, 1 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.STRENGTH.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.STRENGTH.getName(), false, 1 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.SPEED.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.SPEED.getName(), false, 1 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.HASTE.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.HASTE.getName(), false, 1 + 1,
+			ModTooltips.addPotionEffect(tooltip, MobEffects.LUCK.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.LUCK.getName(), false, 1 + 1,
-					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-		} else if (ModTooltips.showEffectTipKey() && CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_EFFECTS) {
+		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
 	}
