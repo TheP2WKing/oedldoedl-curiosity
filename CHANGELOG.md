@@ -29,10 +29,10 @@ Welcome to a very familiar member to the oedldoedl series. This mod is now avail
 - updated curseforge and github page
 - updated logo
 - updated dependencies
-- updated inconsistant tooltip descriptions
+- updated inconsistent tooltip descriptions
 - updated all textures to match oedldoedl resources and gear
 - adjusted effects of nearly all baubles
 
 ### Removed
 
-- removed now deprecateed config options
+- removed now deprecated config options
