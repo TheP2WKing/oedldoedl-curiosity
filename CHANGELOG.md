@@ -8,7 +8,7 @@ Also check out the other mods that have been updated or released!
 
 ### Initial Release
 
-Welcome to a very familiar member to the oedldoedl series. This mod is now avaiable for 1.12.2.
+Welcome to a very familiar member to the oedldoedl series. This mod is now available for 1.12.2.
 
 ### Added
 
