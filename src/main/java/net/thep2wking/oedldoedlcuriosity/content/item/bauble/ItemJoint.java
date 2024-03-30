@@ -9,10 +9,8 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
@@ -37,7 +35,7 @@ public class ItemJoint extends ModItemBaubleBase {
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		if (player.isSneaking()) {
-			player.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, 9, 10, false, false));
+			player.motionY = 0.5;
 			player.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX, player.posY + player.getEyeHeight() - 0.3,
 					player.posZ, Math.random() * 0.3 - 0.1, Math.random() * 0.35, Math.random() * 0.3 - 0.1);
 		}

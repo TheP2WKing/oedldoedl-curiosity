@@ -17,9 +17,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -29,13 +29,13 @@ import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 import net.thep2wking.oedldoedlcuriosity.init.ModItems;
 import net.thep2wking.oedldoedlcuriosity.model.ModelAmulet;
 
+@Mod.EventBusSubscriber
 public class ItemToujouriumAmulet extends ModItemBaubleBase {
 	public ItemToujouriumAmulet(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
 			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
 		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Override
@@ -46,11 +46,20 @@ public class ItemToujouriumAmulet extends ModItemBaubleBase {
 
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
-		player.stepHeight = 1.1f;
-		player.setAir(300);
-		player.fallDistance = 0;
+		if (CuriosityConfig.PROPERTIES.BAUBLES_STEP_UP) {
+			player.stepHeight = 1.1f;
+		}
+		if (CuriosityConfig.PROPERTIES.BAUBLES_UNLIMITED_AIR) {
+			player.setAir(300);
+		}
+		if (CuriosityConfig.PROPERTIES.BAUBLES_NIGHT_VISION) {
+			player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, false, false));
+		}
 
-		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, false, false));
+		if (CuriosityConfig.CONTENT.AMULETS.TOUJOURIUM_AMULET_NEGATES_FALL_DAMAGE) {
+			player.fallDistance = 0;
+		}
+
 		player.addPotionEffect(new PotionEffect(MobEffects.SPEED,
 				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 5, false, false));
 	}
@@ -59,7 +68,8 @@ public class ItemToujouriumAmulet extends ModItemBaubleBase {
 	public static void onLivingFall(LivingFallEvent event) {
 		if (event.getEntity() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.getEntityLiving();
-			if (BaublesApi.isBaubleEquipped(player, ModItems.TOUJOURIUM_AMULET) != -1) {
+			if (BaublesApi.isBaubleEquipped(player, ModItems.TOUJOURIUM_AMULET) != -1
+					&& CuriosityConfig.CONTENT.AMULETS.TOUJOURIUM_AMULET_NEGATES_FALL_DAMAGE) {
 				event.setCanceled(true);
 			}
 		}
@@ -69,8 +79,9 @@ public class ItemToujouriumAmulet extends ModItemBaubleBase {
 	public static void onLivingKnockback(LivingKnockBackEvent event) {
 		if (event.getAttacker() instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.getAttacker();
-			if (BaublesApi.isBaubleEquipped(player, ModItems.TOUJOURIUM_AMULET) != -1) {
-				event.setStrength(3);
+			if (BaublesApi.isBaubleEquipped(player, ModItems.TOUJOURIUM_AMULET) != -1
+					&& CuriosityConfig.CONTENT.AMULETS.TOUJOURIUM_AMULET_ADDITIONAL_KNOCKBACK) {
+				event.setStrength(CuriosityConfig.CONTENT.AMULETS.TOUJOURIUM_AMULET_KNOCKBACK_STRENGTH);
 			}
 		}
 	}
@@ -102,14 +113,13 @@ public class ItemToujouriumAmulet extends ModItemBaubleBase {
 
 		if (ModTooltips.showEffectTip()) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 1,
-					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
+			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 1, 400);
 			ModTooltips.addPotionEffect(tooltip, MobEffects.SPEED.getName(), false, 6,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 2);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 3);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 4);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 2);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 3);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 4);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}

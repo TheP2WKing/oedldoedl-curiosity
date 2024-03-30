@@ -2,6 +2,7 @@ package net.thep2wking.oedldoedlcuriosity.api;
 
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelRenderer;
+import net.minecraft.client.renderer.GlStateManager;
 import net.minecraft.entity.Entity;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -45,6 +46,11 @@ public class ModModelBaubleBase extends ModelBiped {
 	public void render(Entity entityIn, float limbSwing, float limbSwingAmount, float ageInTicks, float netHeadYaw,
 			float headPitch, float scale) {
 		super.render(entityIn, limbSwing, limbSwingAmount, ageInTicks, netHeadYaw, headPitch, scale);
+		GlStateManager.enableLighting();
+		GlStateManager.enableLight(0);
+		GlStateManager.enableLight(1);
+		GlStateManager.enableColorMaterial();
+		GlStateManager.color(0.5F, 0.5F, 0.5F, 0.5F);
 	}
 
 	@SideOnly(Side.CLIENT)

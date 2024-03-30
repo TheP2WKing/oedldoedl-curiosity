@@ -65,7 +65,7 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
 
     @Override
     public BaubleType getBaubleType(ItemStack itemStack) {
-        if (CuriosityConfig.PROPERTIES.BAUBLE_USE_ANY_SLOT) {
+        if (CuriosityConfig.PROPERTIES.BAUBLES_USE_ANY_SLOT) {
             return BaubleType.TRINKET;
         }
         return baubleType;
@@ -141,7 +141,7 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
             if (baubleModel == null)
                 baubleModel = getBaubleModel();
 
-            if (CuriosityConfig.PROPERTIES.BAUBLE_RENDER && hasBaubleRender) {
+            if (CuriosityConfig.PROPERTIES.BAUBLES_DO_RENDER && hasBaubleRender) {
                 baubleModel.bipedHead.render(1);
                 baubleModel.setRotationAngles(player.limbSwing, player.limbSwingAmount, player.ticksExisted,
                         player.cameraYaw, player.cameraPitch, s, player);
@@ -159,7 +159,7 @@ public class ModItemBaubleBase extends ModItemBase implements IBauble, IRenderBa
             if (baubleModel == null)
                 baubleModel = getBaubleModel();
 
-            if (CuriosityConfig.PROPERTIES.BAUBLE_RENDER && hasBaubleRender) {
+            if (CuriosityConfig.PROPERTIES.BAUBLES_DO_RENDER && hasBaubleRender) {
                 baubleModel.bipedBody.render(1);
                 baubleModel.setRotationAngles(player.limbSwing, player.limbSwingAmount, player.ticksExisted,
                         player.cameraYaw, player.cameraPitch, s, player);

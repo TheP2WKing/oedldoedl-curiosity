@@ -16,10 +16,11 @@ import net.minecraftforge.oredict.OreDictionary;
 import net.thep2wking.oedldoedlcore.api.block.ModBlockHorizontalBase;
 import net.thep2wking.oedldoedlcore.util.ModRandomUtil;
 import net.thep2wking.oedldoedlcore.util.ModToolTypes;
+import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 
 public class BlockBaublePackage extends ModBlockHorizontalBase {
 	public static final List<ItemStack> DROPS = OreDictionary.getOres("bauble");
-	
+
 	public BlockBaublePackage(String modid, String name, CreativeTabs tab, Material material, SoundType sound,
 			MapColor mapColor, int harvestLevel, ModToolTypes toolType, float hardness, float resistance,
 			int lightLevel) {
@@ -29,9 +30,9 @@ public class BlockBaublePackage extends ModBlockHorizontalBase {
 	@Override
 	public void getDrops(NonNullList<ItemStack> drops, IBlockAccess world, BlockPos pos, IBlockState state,
 			int fortune) {
-		Random random = new Random();
-		ItemStack randomItem = ModRandomUtil.selectRandom(random, DROPS);
-		if (randomItem != null) {
+		if (CuriosityConfig.CONTENT.BAUBLE_PACKAGE_RANDOM_DROPS) {
+			Random random = new Random();
+			ItemStack randomItem = ModRandomUtil.selectRandom(random, DROPS);
 			drops.add(randomItem);
 		}
 	}

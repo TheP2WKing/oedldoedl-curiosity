@@ -32,6 +32,7 @@ import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemFlyingShootingB
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemGlasses;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemGooglyEyes;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemGremoriumAmulet;
+import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemHeatVisionGoggles;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemHimejimariumAmulet;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemJoint;
 import net.thep2wking.oedldoedlcuriosity.content.item.bauble.ItemKitagawariumAmulet;
@@ -98,6 +99,8 @@ public class ModItems {
 	public static final Item GOOGLY_EYES = new ItemGooglyEyes(OedldoedlCuriosity.MODID, "googly_eyes", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.HEAD, false, ModRarities.AQUA, false, 1, 0);
 	public static final Item MOUSTAGE = new ItemMoustage(OedldoedlCuriosity.MODID, "moustage", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.HEAD, false, ModRarities.YELLOW, false, 1, 0);
 	public static final Item FAKE_ARROW = new ItemFakeArrow(OedldoedlCuriosity.MODID, "fake_arrow", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, BaubleType.HEAD, false, ModRarities.AQUA, false, 1, 0);
+
+	public static final Item HEAT_VISON_GOGGLES = new ItemHeatVisionGoggles(OedldoedlCuriosity.MODID, "heat_vision_goggles", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.HEAD, false, ModRarities.YELLOW, false, 1, 0);
 
 	public static final Item WOODEN_BOX = new ItemWoodenBox(OedldoedlCuriosity.MODID, "wooden_box", OedldoedlCuriosity.TAB, SoundEvents.BLOCK_WOOD_PLACE, BaubleType.BODY, true, MobEffects.RESISTANCE, 1, false, ModRarities.LIGHT_PURPLE, false, 1, 0);
 	public static final Item TRAVELLERS_WINGS = new ItemTravellersWings(OedldoedlCuriosity.MODID, "travellers_wings", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.BODY, true, MobEffects.JUMP_BOOST, 3, false, ModRarities.YELLOW, false, 1, 0);

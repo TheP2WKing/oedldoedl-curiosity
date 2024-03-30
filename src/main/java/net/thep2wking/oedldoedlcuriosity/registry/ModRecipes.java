@@ -1,8 +1,13 @@
 package net.thep2wking.oedldoedlcuriosity.registry;
 
+import baubles.api.IBauble;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import net.minecraftforge.oredict.OreDictionary;
+import net.minecraftforge.registries.ForgeRegistry;
 import net.thep2wking.oedldoedlcore.util.ModLogger;
 import net.thep2wking.oedldoedlcore.util.ModRecipeHelper;
 import net.thep2wking.oedldoedlcuriosity.OedldoedlCuriosity;
@@ -65,20 +70,22 @@ public class ModRecipes {
 			ModRecipeHelper.addOreDict("bauble", ModItems.MINEPODS, 0);
 			ModRecipeHelper.addOreDict("bauble", ModItems.MINEPODS_PRO, 0);
 
-			ModRecipeHelper.addOreDict("bauble", ModItems.GREMORIUM_AMULET, 0);
-			ModRecipeHelper.addOreDict("bauble", ModItems.HIMEJIMARIUM_AMULET, 0);
-			ModRecipeHelper.addOreDict("bauble", ModItems.TOUJOURIUM_AMULET, 0);
-			ModRecipeHelper.addOreDict("bauble", ModItems.ARGENTORIUM_AMULET, 0);
-			ModRecipeHelper.addOreDict("bauble", ModItems.QUARTARIUM_AMULET, 0);
-			ModRecipeHelper.addOreDict("bauble", ModItems.NAGATORIUM_AMULET, 0);
-			ModRecipeHelper.addOreDict("bauble", ModItems.SAKURAJIMARIUM_AMULET, 0);
-			ModRecipeHelper.addOreDict("bauble", ModItems.KITAGAWARIUM_AMULET, 0);
-			ModRecipeHelper.addOreDict("bauble", ModItems.BALANCED_NECKLACE, 0);
-
 			ModRecipeHelper.addOreDict("bauble", ModItems.BASE_RING, 0);
 			ModRecipeHelper.addOreDict("bauble", ModItems.BEDROCKIUM_RING, 0);
-			ModRecipeHelper.addOreDict("bauble", ModItems.OEDLDOEDL_RING, 0);
 			ModRecipeHelper.addOreDict("bauble", ModItems.ANGEL_RING, 0);
+
+			if(CuriosityConfig.CONTENT.BAUBLE_PACKAGE_REGISTER_ALL_BAUBLES_AS_DROPS) {
+				registerOreDictForAllBaubles();
+			}
+		}
+	}
+
+	public static void registerOreDictForAllBaubles() {
+		ForgeRegistry<Item> itemRegistry = (ForgeRegistry<Item>) ForgeRegistries.ITEMS;
+		for (Item item : itemRegistry) {
+			if (item instanceof IBauble) {
+				OreDictionary.registerOre("bauble", new ItemStack(item));
+			}
 		}
 	}
 
@@ -232,8 +239,7 @@ public class ModRecipes {
 					new ItemStack(ModItems.PRO_LOADING_CASE, 1, 0), " A ", "BCB", " D ", 'A', "speaker", 'B', "wool",
 					'C', new ItemStack(ModItems.LOADING_CASE, 1, 0), 'D', "electricalComponent");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "magic_fabric",
-					new ItemStack(ModItems.MAGIC_FABRIC, 2, 0), "AB", "C ", 'A', "toolNeedle", 'B', "fabricYellow", 'C',
-					"fabricRed");
+					new ItemStack(ModItems.MAGIC_FABRIC, 1, 0), "AB", "CD", 'A', "toolNeedle", 'B', "fabricYellow", 'C', "fabricRed", 'D', "ingotGold");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "safety_pin",
 					new ItemStack(ModItems.SAFETY_PIN, 2, 0), " AB", "A A", "AA ", 'A', "nuggetIron", 'B', "ingotIron");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "electrical_component",

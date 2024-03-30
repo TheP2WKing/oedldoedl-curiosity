@@ -65,6 +65,8 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.MOUSTAGE);
 		ModRegistryHelper.registerItem(event, ModItems.FAKE_ARROW);
 
+		ModRegistryHelper.registerItem(event, ModItems.HEAT_VISON_GOGGLES);
+
 		ModRegistryHelper.registerItem(event, ModItems.WOODEN_BOX);
 		ModRegistryHelper.registerItem(event, ModItems.TRAVELLERS_WINGS);
 		ModRegistryHelper.registerItem(event, ModItems.DEMONIC_WINGS);

@@ -62,7 +62,7 @@ public class ItemPlumbob extends ModItemBaubleBase {
             if (baubleModel == null)
                 baubleModel = getBaubleModel();
 
-            if (CuriosityConfig.PROPERTIES.BAUBLE_RENDER && hasBaubleRender) {
+            if (CuriosityConfig.PROPERTIES.BAUBLES_DO_RENDER && hasBaubleRender) {
                 baubleModel.bipedHead.render(1);
                 baubleModel.setRotationAngles(player.limbSwing, player.limbSwingAmount, player.ticksExisted,
                         player.cameraYaw, player.cameraPitch, s, player);
@@ -80,7 +80,7 @@ public class ItemPlumbob extends ModItemBaubleBase {
             if (baubleModel == null)
                 baubleModel = getBaubleModel();
 
-            if (CuriosityConfig.PROPERTIES.BAUBLE_RENDER && hasBaubleRender) {
+            if (CuriosityConfig.PROPERTIES.BAUBLES_DO_RENDER && hasBaubleRender) {
                 baubleModel.bipedBody.render(1);
                 baubleModel.setRotationAngles(player.limbSwing, player.limbSwingAmount, player.ticksExisted,
                         player.cameraYaw, player.cameraPitch, s, player);

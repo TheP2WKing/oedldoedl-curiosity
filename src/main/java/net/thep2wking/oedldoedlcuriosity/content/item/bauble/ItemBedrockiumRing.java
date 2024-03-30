@@ -13,8 +13,8 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingKnockBackEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -22,13 +22,13 @@ import net.thep2wking.oedldoedlcore.util.ModTooltips;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.init.ModItems;
 
+@Mod.EventBusSubscriber
 public class ItemBedrockiumRing extends ModItemBaubleBase {
 	public ItemBedrockiumRing(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
 			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
 		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@SubscribeEvent

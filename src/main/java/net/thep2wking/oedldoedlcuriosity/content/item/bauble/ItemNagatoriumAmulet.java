@@ -19,8 +19,8 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
-import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
@@ -30,13 +30,13 @@ import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 import net.thep2wking.oedldoedlcuriosity.init.ModItems;
 import net.thep2wking.oedldoedlcuriosity.model.ModelAmulet;
 
+@Mod.EventBusSubscriber
 public class ItemNagatoriumAmulet extends ModItemBaubleBase {
 	public ItemNagatoriumAmulet(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
 			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines,
 			int annotationLines) {
 		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Override
@@ -48,27 +48,35 @@ public class ItemNagatoriumAmulet extends ModItemBaubleBase {
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		EntityPlayer entity = (EntityPlayer) player;
-		player.stepHeight = 1.1f;
-		player.setAir(300);
 
-		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION,
-				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 0, false, false));
+		if (CuriosityConfig.PROPERTIES.BAUBLES_STEP_UP) {
+			player.stepHeight = 1.1f;
+		}
+		if (CuriosityConfig.PROPERTIES.BAUBLES_UNLIMITED_AIR) {
+			player.setAir(300);
+		}
+		if (CuriosityConfig.PROPERTIES.BAUBLES_NIGHT_VISION) {
+			player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, false, false));
+		}
+
 		player.addPotionEffect(new PotionEffect(MobEffects.UNLUCK,
 				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 1, false, false));
 
-		effectToInvert(entity, MobEffects.HUNGER, MobEffects.SATURATION);
-		effectToInvert(entity, MobEffects.INSTANT_DAMAGE, MobEffects.INSTANT_HEALTH);
-		effectToInvert(entity, MobEffects.MINING_FATIGUE, MobEffects.HASTE);
-		effectToInvert(entity, MobEffects.POISON, MobEffects.REGENERATION);
-		effectToInvert(entity, MobEffects.SLOWNESS, MobEffects.SPEED);
-		effectToInvert(entity, MobEffects.WEAKNESS, MobEffects.STRENGTH);
-		effectToInvert(entity, MobEffects.WITHER, MobEffects.REGENERATION);
+		if (CuriosityConfig.CONTENT.AMULETS.NAGATORIUM_AMULET_INVERT_POTION_EFFECTS) {
+			effectToInvert(entity, MobEffects.HUNGER, MobEffects.SATURATION);
+			effectToInvert(entity, MobEffects.INSTANT_DAMAGE, MobEffects.INSTANT_HEALTH);
+			effectToInvert(entity, MobEffects.MINING_FATIGUE, MobEffects.HASTE);
+			effectToInvert(entity, MobEffects.POISON, MobEffects.REGENERATION);
+			effectToInvert(entity, MobEffects.SLOWNESS, MobEffects.SPEED);
+			effectToInvert(entity, MobEffects.WEAKNESS, MobEffects.STRENGTH);
+			effectToInvert(entity, MobEffects.WITHER, MobEffects.REGENERATION);
 
-		player.removePotionEffect(MobEffects.LEVITATION);
-		player.removePotionEffect(MobEffects.BLINDNESS);
-		player.removePotionEffect(MobEffects.GLOWING);
-		player.removePotionEffect(MobEffects.INVISIBILITY);
-		player.removePotionEffect(MobEffects.NAUSEA);
+			player.removePotionEffect(MobEffects.LEVITATION);
+			player.removePotionEffect(MobEffects.BLINDNESS);
+			player.removePotionEffect(MobEffects.GLOWING);
+			player.removePotionEffect(MobEffects.INVISIBILITY);
+			player.removePotionEffect(MobEffects.NAUSEA);
+		}
 	}
 
 	public static void effectToInvert(EntityPlayer player, Potion effectIn, Potion effectOut) {
@@ -86,17 +94,18 @@ public class ItemNagatoriumAmulet extends ModItemBaubleBase {
 				EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 				if (BaublesApi.isBaubleEquipped(player, ModItems.NAGATORIUM_AMULET) != -1) {
 					EntityLivingBase target = event.getEntityLiving();
-					target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 60, 0, false, false));
-					target.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 60, 3, false, false));
-					target.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 100, 0, false, false));
-					target.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 60, 4, false, false));
-					target.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 60, 0, false, false));
-					target.addPotionEffect(new PotionEffect(MobEffects.POISON, 60, 3, false, false));
-					target.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 60, 9, false, false));
-					target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 60, 2, false, false));
-					target.addPotionEffect(new PotionEffect(MobEffects.WITHER, 60, 2, false, false));
-
-					if (player.isSneaking()) {
+					if (CuriosityConfig.CONTENT.AMULETS.NAGATORIUM_AMULET_NASTY_EFFECTS) {
+						target.addPotionEffect(new PotionEffect(MobEffects.BLINDNESS, 60, 0, false, false));
+						target.addPotionEffect(new PotionEffect(MobEffects.HUNGER, 60, 3, false, false));
+						target.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 100, 0, false, false));
+						target.addPotionEffect(new PotionEffect(MobEffects.MINING_FATIGUE, 60, 4, false, false));
+						target.addPotionEffect(new PotionEffect(MobEffects.NAUSEA, 60, 0, false, false));
+						target.addPotionEffect(new PotionEffect(MobEffects.POISON, 60, 3, false, false));
+						target.addPotionEffect(new PotionEffect(MobEffects.UNLUCK, 60, 9, false, false));
+						target.addPotionEffect(new PotionEffect(MobEffects.WEAKNESS, 60, 2, false, false));
+						target.addPotionEffect(new PotionEffect(MobEffects.WITHER, 60, 2, false, false));
+					}
+					if (player.isSneaking() && CuriosityConfig.CONTENT.AMULETS.NAGATORIUM_AMULET_LEVITATION) {
 						target.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, 100, 100, false, false));
 					}
 				}
@@ -131,15 +140,14 @@ public class ItemNagatoriumAmulet extends ModItemBaubleBase {
 
 		if (ModTooltips.showEffectTip()) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 1,
-					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
+			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 1, 400);
 			ModTooltips.addPotionEffect(tooltip, MobEffects.UNLUCK.getName(), true, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 2);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 3);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 4);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 5);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 2);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 3);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 4);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 5);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}

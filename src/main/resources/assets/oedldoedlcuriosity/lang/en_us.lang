@@ -2,7 +2,13 @@
 itemGroup.oedldoedlcuriosity.name=§dOedldoedl Curiosity
 
 # icons
-item.oedldoedlcore.curiosity_icon.annotation3=Version: §e1.12.2-4.0.0
+item.oedldoedlcore.curiosity_icon.annotation3=Version: §e1.12.2-4.1.0
+
+# jei
+jei.oedldoedlcuriosity.bauble_package_drops.category=Bauble Package Drops
+jei.oedldoedlcuriosity.bauble_package_drops.tip1=Has a random chance of being dropped when mining.
+jei.oedldoedlcuriosity.bauble_package_drops.tip2=The more drops are possible, the smaller the chance.
+jei.oedldoedlcuriosity.bauble_package_drops.tip3=Chance:
 
 # blocks
 tile.oedldoedlcuriosity.bauble_package.name=Bauble Package
@@ -55,16 +61,16 @@ item.oedldoedlcuriosity.bedrockium_ring.tip1=Heavier than Flofino.
 item.oedldoedlcuriosity.bedrockium_ring.effects1=Knockback Resistance
 item.oedldoedlcuriosity.travellers_wings.name=Travellers Wings
 item.oedldoedlcuriosity.travellers_wings.tip1=Props to Tinkers Construct.
-item.oedldoedlcuriosity.travellers_wings.effects1=Gives you Slow Falling when falling from a high Place
+item.oedldoedlcuriosity.travellers_wings.effects1=Slow Falling when falling from a high Place
 item.oedldoedlcuriosity.demonic_wings.name=Demonic Wings
 item.oedldoedlcuriosity.demonic_wings.tip1=Props to Tinkers Construct,
 item.oedldoedlcuriosity.demonic_wings.tip2=but I painted them black.
-item.oedldoedlcuriosity.demonic_wings.effects1=Gives you Slow Falling when falling from a high Place
+item.oedldoedlcuriosity.demonic_wings.effects1=Slow Falling when falling from a high Place
 item.oedldoedlcuriosity.oedldoedl_ring.name=Oedldoedl Ring
 item.oedldoedlcuriosity.oedldoedl_ring.tip1=All the power combined.
 item.oedldoedlcuriosity.angel_ring.name=Angel Ring
 item.oedldoedlcuriosity.angel_ring.tip1=The classic angel ring.
-item.oedldoedlcuriosity.angel_ring.effects1=Creative Flight
+item.oedldoedlcuriosity.angel_ring.effects1=Flight
 item.oedldoedlcuriosity.fake_arrow.name=Fake Arrow
 item.oedldoedlcuriosity.fake_arrow.tip1=Looks stupid. Like you.
 item.oedldoedlcuriosity.googly_eyes.name=Googly Eyes
@@ -121,57 +127,58 @@ item.oedldoedlcuriosity.devil_horns.name=Devil Horns
 item.oedldoedlcuriosity.devil_horns.tip1=No cats?
 
 item.oedldoedlcuriosity.gremorium_amulet.name=Gremorium Amulet
-item.oedldoedlcuriosity.gremorium_amulet.tip1=The full power of Rias as a bauble.
+item.oedldoedlcuriosity.gremorium_amulet.tip1=The full power of Rias as a Bauble.
 item.oedldoedlcuriosity.gremorium_amulet.effects1=Removes Poison / Wither
-item.oedldoedlcuriosity.gremorium_amulet.effects2=Underwater Breathing
-item.oedldoedlcuriosity.gremorium_amulet.effects3=Creative Flight
-item.oedldoedlcuriosity.gremorium_amulet.effects4=Step Up
+item.oedldoedlcuriosity.gremorium_amulet.effects2=Unlimited Air
+item.oedldoedlcuriosity.gremorium_amulet.effects3=Step Up
+item.oedldoedlcuriosity.gremorium_amulet.effects4=Flight
 
 item.oedldoedlcuriosity.himejimarium_amulet.name=Himejimarium Amulet
-item.oedldoedlcuriosity.himejimarium_amulet.tip1=The full power of Akeno as a bauble.
+item.oedldoedlcuriosity.himejimarium_amulet.tip1=The full power of Akeno as a Bauble.
 item.oedldoedlcuriosity.himejimarium_amulet.effects1=Attacked Entities are Struck by Lightning §e§o(Sneak)
-item.oedldoedlcuriosity.himejimarium_amulet.effects2=Underwater Breathing
+item.oedldoedlcuriosity.himejimarium_amulet.effects2=Unlimited Air
 item.oedldoedlcuriosity.himejimarium_amulet.effects3=Step Up
 
 item.oedldoedlcuriosity.toujourium_amulet.name=Toujourium Amulet
-item.oedldoedlcuriosity.toujourium_amulet.tip1=The full power of Koneko as a bauble.
+item.oedldoedlcuriosity.toujourium_amulet.tip1=The full power of Koneko as a Bauble.
 item.oedldoedlcuriosity.toujourium_amulet.effects1=Additional Attack Knockback
-item.oedldoedlcuriosity.toujourium_amulet.effects2=Underwater Breathing
-item.oedldoedlcuriosity.toujourium_amulet.effects3=Negates Fall Damage
+item.oedldoedlcuriosity.toujourium_amulet.effects2=Negates Fall Damage
+item.oedldoedlcuriosity.toujourium_amulet.effects3=Unlimited Air
 item.oedldoedlcuriosity.toujourium_amulet.effects4=Step Up
 
 item.oedldoedlcuriosity.argentorium_amulet.name=Argentorium Amulet
-item.oedldoedlcuriosity.argentorium_amulet.tip1=The full power of Asia as a bauble.
+item.oedldoedlcuriosity.argentorium_amulet.tip1=The full power of Asia as a Bauble.
 item.oedldoedlcuriosity.argentorium_amulet.effects1=Bonus Damage Against Undead
 item.oedldoedlcuriosity.argentorium_amulet.effects2=Fast Regeneration §e§o(Sneak)
-item.oedldoedlcuriosity.argentorium_amulet.effects3=Underwater Breathing
+item.oedldoedlcuriosity.argentorium_amulet.effects3=Unlimited Air
 item.oedldoedlcuriosity.argentorium_amulet.effects4=Step Up
 
 item.oedldoedlcuriosity.quartarium_amulet.name=Quartarium Amulet
-item.oedldoedlcuriosity.quartarium_amulet.tip1=The full power of Xenovia as a bauble.
-item.oedldoedlcuriosity.quartarium_amulet.effects1=Underwater Breathing
+item.oedldoedlcuriosity.quartarium_amulet.tip1=The full power of Xenovia as a Bauble.
+item.oedldoedlcuriosity.quartarium_amulet.effects1=Unlimited Air
 item.oedldoedlcuriosity.quartarium_amulet.effects2=Life Steal
 item.oedldoedlcuriosity.quartarium_amulet.effects3=Step Up
 
 item.oedldoedlcuriosity.nagatorium_amulet.name=Nagatorium Amulet
-item.oedldoedlcuriosity.nagatorium_amulet.tip1=The full power of Hayase as a bauble.
+item.oedldoedlcuriosity.nagatorium_amulet.tip1=The full power of Hayase as a Bauble.
 item.oedldoedlcuriosity.nagatorium_amulet.effects1=Attacked Entities get Levitation §e§o(Sneak)
 item.oedldoedlcuriosity.nagatorium_amulet.effects2=Attacked Entities get Nasty Effects
 item.oedldoedlcuriosity.nagatorium_amulet.effects3=Inverts Negative Potion Effects
-item.oedldoedlcuriosity.nagatorium_amulet.effects4=Underwater Breathing
+item.oedldoedlcuriosity.nagatorium_amulet.effects4=Unlimited Air
 item.oedldoedlcuriosity.nagatorium_amulet.effects5=Step Up
 
 item.oedldoedlcuriosity.sakurajimarium_amulet.name=Sakurajimarium Amulet
-item.oedldoedlcuriosity.sakurajimarium_amulet.tip1=The full power of Mai as a bauble.
-item.oedldoedlcuriosity.sakurajimarium_amulet.effects1=Underwater Breathing
-item.oedldoedlcuriosity.sakurajimarium_amulet.effects2=Life Steal
+item.oedldoedlcuriosity.sakurajimarium_amulet.tip1=The full power of Mai as a Bauble.
+item.oedldoedlcuriosity.sakurajimarium_amulet.effects1=Fast Forward Time §e§o(Sneak)
+item.oedldoedlcuriosity.sakurajimarium_amulet.effects2=Unlimited Air
 item.oedldoedlcuriosity.sakurajimarium_amulet.effects3=Step Up
 
 item.oedldoedlcuriosity.kitagawarium_amulet.name=Kitagawarium Amulet
-item.oedldoedlcuriosity.kitagawarium_amulet.tip1=The full power of Marin as a bauble.
-item.oedldoedlcuriosity.kitagawarium_amulet.effects1=Underwater Breathing
-item.oedldoedlcuriosity.kitagawarium_amulet.effects2=Life Steal
-item.oedldoedlcuriosity.kitagawarium_amulet.effects3=Step Up
+item.oedldoedlcuriosity.kitagawarium_amulet.tip1=The full power of Marin as a Bauble.
+item.oedldoedlcuriosity.kitagawarium_amulet.effects1=Attacked Entities are set on Fire during the Day
+item.oedldoedlcuriosity.kitagawarium_amulet.effects2=Hostile Entities around you take Damage 
+item.oedldoedlcuriosity.kitagawarium_amulet.effects3=Unlimited Air
+item.oedldoedlcuriosity.kitagawarium_amulet.effects4=Step Up
 
 # misc
 item.oedldoedlcuriosity.loading_case.name=Loading Case
