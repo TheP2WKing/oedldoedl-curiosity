@@ -126,18 +126,18 @@ public class ModelAnimatedWings extends ModModelBaubleBase {
 			this.WingBaseLeft.rotateAngleX = MathHelper.sin(partialTick / slow) / 15f + 0.5235988F;
 			this.WingBaseLeft.rotateAngleY = -MathHelper.sin(partialTick / slow) / 15f + 0.8f;
 			this.WingBaseLeft.rotateAngleZ = -MathHelper.sin(partialTick / slow) / 15f + 0.8f;
-		} else if (entityIn.getPosition().getY() - entityIn.prevPosY < 0f && entityIn.fallDistance > 4.0) {
-			float slow = 10f;
-			this.WingBaseRight.rotateAngleX = MathHelper.sin(partialTick / slow) / 15f + 0.7F;
-			this.WingBaseRight.rotateAngleY = MathHelper.sin(partialTick / slow) / 15f - 0.8f;
-			this.WingBaseRight.rotateAngleZ = MathHelper.sin(partialTick / slow) / 15f - 0.3f;
+		// } else if (entityIn.getPosition().getY() - entityIn.prevPosY < 0f && entityIn.fallDistance > 4.0) {
+		// 	float slow = 10f;
+		// 	this.WingBaseRight.rotateAngleX = MathHelper.sin(partialTick / slow) / 15f + 0.7F;
+		// 	this.WingBaseRight.rotateAngleY = MathHelper.sin(partialTick / slow) / 15f - 0.8f;
+		// 	this.WingBaseRight.rotateAngleZ = MathHelper.sin(partialTick / slow) / 15f - 0.3f;
 
-			this.WingBaseLeft.rotateAngleX = MathHelper.sin(partialTick / slow) / 15f + 0.7F;
-			this.WingBaseLeft.rotateAngleY = -MathHelper.sin(partialTick / slow) / 15f + 0.8f;
-			this.WingBaseLeft.rotateAngleZ = -MathHelper.sin(partialTick / slow) / 15f + 0.3f;
+		// 	this.WingBaseLeft.rotateAngleX = MathHelper.sin(partialTick / slow) / 15f + 0.7F;
+		// 	this.WingBaseLeft.rotateAngleY = -MathHelper.sin(partialTick / slow) / 15f + 0.8f;
+		// 	this.WingBaseLeft.rotateAngleZ = -MathHelper.sin(partialTick / slow) / 15f + 0.3f;
 		} else {
 			float slow = 10f;
-			// if (entityIn.getMotion().x != 0 || entityIn.getMotion().z != 0) slow = 6f;
+			// if (entityIn.isAirBorne && !entityIn.onGround) slow = 6f;
 			this.WingBaseRight.rotateAngleX = MathHelper.sin(partialTick / slow) / 5f + 0.5235988F;
 			this.WingBaseRight.rotateAngleY = MathHelper.sin(partialTick / slow) / 3 - 0.6f;
 			this.WingBaseRight.rotateAngleZ = MathHelper.sin(partialTick / slow) / 1.5f - 0.3f;

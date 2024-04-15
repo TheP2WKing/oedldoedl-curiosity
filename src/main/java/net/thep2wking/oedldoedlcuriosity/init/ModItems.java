@@ -100,7 +100,7 @@ public class ModItems {
 	public static final Item MOUSTAGE = new ItemMoustage(OedldoedlCuriosity.MODID, "moustage", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.HEAD, false, ModRarities.YELLOW, false, 1, 0);
 	public static final Item FAKE_ARROW = new ItemFakeArrow(OedldoedlCuriosity.MODID, "fake_arrow", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, BaubleType.HEAD, false, ModRarities.AQUA, false, 1, 0);
 
-	public static final Item HEAT_VISON_GOGGLES = new ItemHeatVisionGoggles(OedldoedlCuriosity.MODID, "heat_vision_goggles", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.HEAD, false, ModRarities.YELLOW, false, 1, 0);
+	public static final Item HEAT_VISION_GOGGLES = new ItemHeatVisionGoggles(OedldoedlCuriosity.MODID, "heat_vision_goggles", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_IRON, BaubleType.HEAD, false, ModRarities.YELLOW, false, 1, 0);
 
 	public static final Item WOODEN_BOX = new ItemWoodenBox(OedldoedlCuriosity.MODID, "wooden_box", OedldoedlCuriosity.TAB, SoundEvents.BLOCK_WOOD_PLACE, BaubleType.BODY, true, MobEffects.RESISTANCE, 1, false, ModRarities.LIGHT_PURPLE, false, 1, 0);
 	public static final Item TRAVELLERS_WINGS = new ItemTravellersWings(OedldoedlCuriosity.MODID, "travellers_wings", OedldoedlCuriosity.TAB, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, BaubleType.BODY, true, MobEffects.JUMP_BOOST, 3, false, ModRarities.YELLOW, false, 1, 0);
