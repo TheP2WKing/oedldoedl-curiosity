@@ -1,6 +1,5 @@
 package net.thep2wking.oedldoedlcuriosity.content.item.bauble;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.Nullable;
@@ -13,14 +12,12 @@ import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundEvent;
-import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.world.World;
 import net.minecraftforge.client.event.RenderGameOverlayEvent;
 import net.minecraftforge.fml.common.Mod;
@@ -31,14 +28,11 @@ import net.thep2wking.oedldoedlcore.util.ModTooltips;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 import net.thep2wking.oedldoedlcuriosity.init.ModItems;
-import net.thep2wking.oedldoedlcuriosity.model.ModelHeatVisionGoggles;
-import net.minecraft.entity.Entity;
+import net.thep2wking.oedldoedlcuriosity.model.ModelNightVisionGoggles;
 
 @Mod.EventBusSubscriber
-public class ItemHeatVisionGoggles extends ModItemBaubleBase {
-	public static List<EntityLivingBase> entitiesToRemove = new ArrayList<EntityLivingBase>();
-
-	public ItemHeatVisionGoggles(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
+public class ItemNightVisionGoggles extends ModItemBaubleBase {
+	public ItemNightVisionGoggles(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
 			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines, int annotationLines) {
 		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines, annotationLines);
 	}
@@ -46,20 +40,20 @@ public class ItemHeatVisionGoggles extends ModItemBaubleBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getBaubleModel() {
-		return new ModelHeatVisionGoggles();
+		return new ModelNightVisionGoggles();
 	}
 
 	@SubscribeEvent
 	public static void onGameRenderOverlay(RenderGameOverlayEvent.Pre event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityPlayer player = mc.player;
-		boolean doRender = !player.isSneaking() && CuriosityConfig.CONTENT.HEAT_VISION_GOGGLES_OVERLAY;
+		boolean doRender = !player.isSneaking() && CuriosityConfig.CONTENT.NIGHT_VISION_GOGGLES_OVERLAY;
 		if (doRender) {
 			if (event.getType() != RenderGameOverlayEvent.ElementType.ALL) {
 				return;
 			}
-			if (BaublesApi.isBaubleEquipped(player, ModItems.HEAT_VISION_GOGGLES) != -1) {
-				int color = 0xCC000000;
+			if (BaublesApi.isBaubleEquipped(player, ModItems.NIGHT_VISION_GOGGLES) != -1) {
+				int color = 0xA839692e;
 				Gui.drawRect(0, 0, event.getResolution().getScaledWidth(), event.getResolution().getScaledHeight(),
 						color);
 			}
@@ -69,35 +63,15 @@ public class ItemHeatVisionGoggles extends ModItemBaubleBase {
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		if (!player.isSneaking()) {
-			AxisAlignedBB aabb = new AxisAlignedBB(player.posX, player.posY, player.posZ,
-					player.posX, player.posY,
-					player.posZ).grow(32);
-			List<EntityLivingBase> mobs = player.world.getEntitiesWithinAABB(EntityLivingBase.class, aabb,
-					(Entity e) -> e != null && (e.isCreatureType(EnumCreatureType.MONSTER, false)
-							|| e.isCreatureType(EnumCreatureType.WATER_CREATURE, false)
-							|| e.isCreatureType(EnumCreatureType.CREATURE, false)
-							|| e.isCreatureType(EnumCreatureType.AMBIENT, false)));
-			if (!(player instanceof EntityPlayer)) {
-				mobs.addAll(player.world.getEntitiesWithinAABB(EntityPlayer.class, aabb));
-			}
-			for (EntityLivingBase mob : mobs) {
-				mob.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 4, 0, false, false));
-				entitiesToRemove.add(mob);
-			}
+			player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, false, false));
 		} else {
-			for (EntityLivingBase mob : entitiesToRemove) {
-				mob.removePotionEffect(MobEffects.GLOWING);
-			}
-			entitiesToRemove.clear();
+			player.removePotionEffect(MobEffects.NIGHT_VISION);
 		}
 	}
 
 	@Override
 	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
-		for (EntityLivingBase mob : entitiesToRemove) {
-			mob.removePotionEffect(MobEffects.GLOWING);
-		}
-		entitiesToRemove.clear();
+		player.removePotionEffect(MobEffects.NIGHT_VISION);
 	}
 
 	@Override
@@ -118,7 +92,7 @@ public class ItemHeatVisionGoggles extends ModItemBaubleBase {
 
 		if (ModTooltips.showEffectTip()) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
+			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 1, 400);;
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}

@@ -38,8 +38,7 @@ public class ItemOedldoedlRing extends ModItemBaubleBase {
 				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 1, false, false));
 		player.addPotionEffect(new PotionEffect(MobEffects.LUCK,
 				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 1, false, false));
-		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION,
-				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 0, false, false));
+		player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, false, false));
 		player.addPotionEffect(new PotionEffect(MobEffects.REGENERATION,
 				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 1, false, false));
 		player.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE,

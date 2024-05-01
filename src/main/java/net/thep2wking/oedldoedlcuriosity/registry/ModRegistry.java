@@ -52,6 +52,8 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.STRAW_HAT);
 		ModRegistryHelper.registerItem(event, ModItems.BIRDS_NEST);
 		ModRegistryHelper.registerItem(event, ModItems.PLUMBOB);
+		ModRegistryHelper.registerItem(event, ModItems.BATTLE_AXE);
+
 		ModRegistryHelper.registerItem(event, ModItems.GLASSES);
 		ModRegistryHelper.registerItem(event, ModItems.SUNGLASSES);
 		ModRegistryHelper.registerItem(event, ModItems.FANCY_SUNGLASSES);
@@ -65,6 +67,7 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.MOUSTAGE);
 		ModRegistryHelper.registerItem(event, ModItems.FAKE_ARROW);
 
+		ModRegistryHelper.registerItem(event, ModItems.NIGHT_VISION_GOGGLES);
 		ModRegistryHelper.registerItem(event, ModItems.HEAT_VISION_GOGGLES);
 
 		ModRegistryHelper.registerItem(event, ModItems.WOODEN_BOX);
@@ -99,5 +102,6 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.SPEAKER);
 		ModRegistryHelper.registerItem(event, ModItems.RUBBER_BAND);
 		ModRegistryHelper.registerItem(event, ModItems.LENS);
+		ModRegistryHelper.registerItem(event, ModItems.INDUSTRIAL_LENS);
 	}
 }

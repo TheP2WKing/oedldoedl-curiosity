@@ -12,6 +12,12 @@ public class Content {
 	@Config.Name("Bauble Package Register All Baubles As Drops")
 	public boolean BAUBLE_PACKAGE_REGISTER_ALL_BAUBLES_AS_DROPS = false;
 
+	@Config.Name("Night Vision Goggles Overlay")
+	public boolean NIGHT_VISION_GOGGLES_OVERLAY = true;
+
+	@Config.Name("Heat Vision Goggles Overlay")
+	public boolean HEAT_VISION_GOGGLES_OVERLAY = true;
+
 	@Config.Name("amulets")
 	public final Amulets AMULETS = new Amulets();
 

@@ -106,7 +106,7 @@ public class ModelNightVisionGoggles extends ModModelBaubleBase {
 	public void setRotationAngles(float limbSwing, float limbSwingAmount, float partialTick, float netHeadYaw,
 			float headPitch, float scaleFactor, Entity entityIn) {
 		super.setRotationAngles(limbSwing, limbSwingAmount, partialTick, netHeadYaw, headPitch, scaleFactor, entityIn);
-		if (!entityIn.isSneaking()) {
+		if (entityIn.isSneaking()) {
 			this.rotable.rotateAngleX = (float) -Math.sin(Math.toRadians(45));
 			this.rotable.setRotationPoint(0, 20.0F, -21.0F);
 		} else {
