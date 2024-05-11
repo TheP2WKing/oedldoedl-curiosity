@@ -50,6 +50,7 @@ public class ItemHeatVisionGoggles extends ModItemBaubleBase {
 	}
 
 	@SubscribeEvent
+	@SideOnly(Side.CLIENT)
 	public static void onGameRenderOverlay(RenderGameOverlayEvent.Pre event) {
 		Minecraft mc = Minecraft.getMinecraft();
 		EntityPlayer player = mc.player;
