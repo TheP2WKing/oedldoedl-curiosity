@@ -1,5 +1,23 @@
 # Changelog
 
+## [4.1.0] - 2024-06-02
+
+### Added
+
+- added night and heat vision goggles from Grand Theft Auto Online
+- added prb battle axe bauble
+- added config options to toggle various properties and effects of baubles
+- added JEI integration for bauble package drops
+- added missing effects to Kitagawarium and Sakurajimarium amulets
+- added a config option to register all IBauble to be a possible drop of the bauble package (default off)
+
+### Changed
+
+- fixed some lighting issues related to baubles with rendering
+- travellers and demonic wings now give slow falling when falling over 6 blocks
+- the cigarette now uses motion instead of levitation
+- fixed night vision duration on some baubles that resulted in constant fading out
+
 ## [4.0.0] - 2024-03-03
 
 ### 1.12.2 isn't dead, it just took some time
