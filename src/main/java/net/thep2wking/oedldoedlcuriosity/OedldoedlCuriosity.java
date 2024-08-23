@@ -27,8 +27,8 @@ public class OedldoedlCuriosity {
     public static final String PREFIX = MODID + ":";
     public static final String MC_VERSION = "1.12.2";
     public static final String NAME = "Oedldoedl Curiosity";
-    public static final String VERSION = MC_VERSION + "-" + "4.1.0";
-    public static final String DEPENDENCIES = "required-after:forge@[14.23.5.2847,);required-after:oedldoedlcore@[1.12.2-4.1.0,);required-after:oedldoedlresources@[1.12.2-4.1.0,);required-after:oedldoedlgear@[1.12.2-4.1.0,);required-after:baubles@[1.5.2,)";
+    public static final String VERSION = MC_VERSION + "-" + "4.2.0";
+    public static final String DEPENDENCIES = "required-after:forge@[14.23.5.2847,);required-after:oedldoedlcore@[1.12.2-4.2.0,);required-after:oedldoedlresources@[1.12.2-4.2.0,);required-after:oedldoedlgear@[1.12.2-4.2.0,);required-after:baubles@[1.5.2,)";
     public static final String CLIENT_PROXY_CLASS = "net.thep2wking.oedldoedlcuriosity.util.proxy.ClientProxy";
     public static final String SERVER_PROXY_CLASS = "net.thep2wking.oedldoedlcuriosity.util.proxy.ServerProxy";
 
@@ -81,7 +81,7 @@ public class OedldoedlCuriosity {
     public static class ModJoinMessage {
         @SubscribeEvent
         public static void addJoinMessage(PlayerLoggedInEvent event) {
-            ModLogInUtil.addJoinMessage(event, NAME, MODID, VERSION);
+            ModLogInUtil.addJoinMessage(event, NAME, MODID, VERSION, true);
         }
     }
 }

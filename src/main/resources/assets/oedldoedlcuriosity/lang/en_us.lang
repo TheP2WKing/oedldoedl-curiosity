@@ -2,7 +2,10 @@
 itemGroup.oedldoedlcuriosity.name=§dOedldoedl Curiosity
 
 # icons
-item.oedldoedlcore.curiosity_icon.annotation3=Version: §e1.12.2-4.1.0
+item.oedldoedlcore.curiosity_icon.annotation3=Version: §e1.12.2-4.2.0
+
+# join message
+join.oedldoedlcuriosity.message=Multipurpose streaming equipment!
 
 # jei
 jei.oedldoedlcuriosity.bauble_package_drops.category=Bauble Package Drops
