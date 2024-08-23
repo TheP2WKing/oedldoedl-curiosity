@@ -17,6 +17,14 @@ public class OedldoedlCuriosityJEIPlugin extends ModJEIPluginBase {
 	}
 
 	@Override
+	public void registerCategories(IRecipeCategoryRegistration registry) {
+		if (CuriosityConfig.INTEGRATION.JEI.BAUBLE_PACKAGE_RECIPE_CATEGORY
+				&& CuriosityConfig.CONTENT.BAUBLE_PACKAGE_RANDOM_DROPS) {
+			addRecipeCategory(registry, new BaublePackageDropsRecipeCategory(getGuiHelper(registry)));
+		}
+	}
+
+	@Override
 	public void register(IModRegistry registry) {
 		super.register(registry);
 
@@ -25,14 +33,6 @@ public class OedldoedlCuriosityJEIPlugin extends ModJEIPluginBase {
 			addRecipeCatalyst(registry, new ItemStack(ModBlocks.BAUBLE_PACKAGE, 1, 0),
 					BaublePackageDropsRecipeCategory.UID);
 			addRecipes(registry, BaublePackageDropsRecipeWrapper.getDrops(), BaublePackageDropsRecipeCategory.UID);
-		}
-	}
-
-	@Override
-	public void registerCategories(IRecipeCategoryRegistration registry) {
-		if (CuriosityConfig.INTEGRATION.JEI.BAUBLE_PACKAGE_RECIPE_CATEGORY
-				&& CuriosityConfig.CONTENT.BAUBLE_PACKAGE_RANDOM_DROPS) {
-			addRecipeCategory(registry, new BaublePackageDropsRecipeCategory(getGuiHelper(registry)));
 		}
 	}
 }
