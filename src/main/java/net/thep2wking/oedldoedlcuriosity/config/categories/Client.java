@@ -20,9 +20,8 @@ public class Client {
 		}
 	}
 
-	@Config.Name("Bauble Model Eye Offset")
-	public EyeOffset BAUBLE_MODEL_EYE_OFFSET = EyeOffset.DEFAULT;
-
+	@Config.Name("Baubles Model Eye Offset")
+	public EyeOffset BAUBLES_MODEL_EYE_OFFSET = EyeOffset.DEFAULT;
 
 	@Config.Name("Baubles Render Model")
 	public boolean BAUBLES_RENDER_MODEL = true;

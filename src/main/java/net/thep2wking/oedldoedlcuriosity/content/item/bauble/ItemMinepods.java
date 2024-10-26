@@ -33,7 +33,7 @@ public class ItemMinepods extends ModItemBaubleBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public double getEyeOffset() {
-		return CuriosityConfig.CLIENT.BAUBLE_MODEL_EYE_OFFSET.getOffset();
+		return CuriosityConfig.CLIENT.BAUBLES_MODEL_EYE_OFFSET.getOffset();
 	}
 
 	@Override
