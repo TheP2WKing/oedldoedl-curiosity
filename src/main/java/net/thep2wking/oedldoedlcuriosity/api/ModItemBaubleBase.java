@@ -237,27 +237,27 @@ public abstract class ModItemBaubleBase extends ModItemBase implements IBauble, 
             float partialTicks) {
         if (!this.isBodyModel && this.hasBaubleRender() && this.getBaubleModel() != null
                 && renderType == RenderType.HEAD) {
-            GlStateManager.pushMatrix();
-            Minecraft.getMinecraft().renderEngine.bindTexture(getTexture());
-            Helper.translateToHeadLevel(player);
-
-            float scaleFactor = getScaleFactor();
-            float s = 1.0F / 16.0F;
-            GlStateManager.scale(s * scaleFactor, s * scaleFactor, s * scaleFactor);
-            GlStateManager.rotate(-90, 0, 1, 0);
-
-            // rendering of baubles is slighty offset (default = y26)
-            float eyeOffset = (float) getEyeOffset();
-            if (!player.isSneaking()) {
-                GlStateManager.translate(0, 26.075 - eyeOffset, 0);
-            } else {
-                GlStateManager.translate(0, 26.125 - eyeOffset, 0);
-            }
-
+                    GlStateManager.pushMatrix();
+                    Minecraft.getMinecraft().renderEngine.bindTexture(getTexture());
+                    Helper.translateToHeadLevel(player);
+                    
+                    float scaleFactor = getScaleFactor();
+                    float s = 1.0F / 16.0F;
+                    GlStateManager.scale(s * scaleFactor, s * scaleFactor, s * scaleFactor);
+                    GlStateManager.rotate(-90, 0, 1, 0);
+                    
+                    // rendering of baubles is slighty offset (default = y26)
+                    float eyeOffset = (float) getEyeOffset();
+                    if (!player.isSneaking()) {
+                        GlStateManager.translate(0, 26.075 - eyeOffset, 0);
+                    } else {
+                        GlStateManager.translate(0, 26.125 - eyeOffset, 0);
+                    }
+                    
             GlStateManager.enableLighting();
             GlStateManager.enableRescaleNormal();
-            GlStateManager.enableColorMaterial();
-            GlStateManager.colorMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE);
+            // GlStateManager.enableColorMaterial();
+            // GlStateManager.colorMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE);
 
             if (baubleModel == null)
                 baubleModel = getBaubleModel();
@@ -271,26 +271,26 @@ public abstract class ModItemBaubleBase extends ModItemBase implements IBauble, 
                 }
             }
 
-            GlStateManager.disableColorMaterial();
+            // GlStateManager.disableColorMaterial();
             GlStateManager.disableRescaleNormal();
             GlStateManager.disableLighting();
             GlStateManager.popMatrix();
         } else if (this.isBodyModel && this.hasBaubleRender() && this.getBaubleModel() != null
                 && renderType == RenderType.BODY) {
-            GlStateManager.pushMatrix();
-            Minecraft.getMinecraft().renderEngine.bindTexture(getTexture());
-            Helper.rotateIfSneaking(player);
-
-            float scaleFactor = getScaleFactor();
-            float s = 1.0F / 16.0F;
-            GlStateManager.scale(s * scaleFactor, s * scaleFactor, s * scaleFactor);
-            float eyeOffset = (float) getEyeOffset();
-            GlStateManager.translate(0, 0 - eyeOffset, 0);
-
+                    GlStateManager.pushMatrix();
+                    Minecraft.getMinecraft().renderEngine.bindTexture(getTexture());
+                    Helper.rotateIfSneaking(player);
+                    
+                    float scaleFactor = getScaleFactor();
+                    float s = 1.0F / 16.0F;
+                    GlStateManager.scale(s * scaleFactor, s * scaleFactor, s * scaleFactor);
+                    float eyeOffset = (float) getEyeOffset();
+                    GlStateManager.translate(0, 0 - eyeOffset, 0);
+                    
             GlStateManager.enableLighting();
             GlStateManager.enableRescaleNormal();
-            GlStateManager.enableColorMaterial();
-            GlStateManager.colorMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE);
+            // GlStateManager.enableColorMaterial();
+            // GlStateManager.colorMaterial(GL11.GL_FRONT_AND_BACK, GL11.GL_AMBIENT_AND_DIFFUSE);
 
             if (baubleModel == null)
                 baubleModel = getBaubleModel();
@@ -304,7 +304,7 @@ public abstract class ModItemBaubleBase extends ModItemBase implements IBauble, 
                 }
             }
 
-            GlStateManager.disableColorMaterial();
+            // GlStateManager.disableColorMaterial();
             GlStateManager.disableRescaleNormal();
             GlStateManager.disableLighting();
             GlStateManager.popMatrix();
