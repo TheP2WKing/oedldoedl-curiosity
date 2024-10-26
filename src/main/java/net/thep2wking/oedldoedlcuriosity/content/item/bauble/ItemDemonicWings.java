@@ -26,8 +26,9 @@ public class ItemDemonicWings extends ModItemBaubleEffectBase {
 	public ItemDemonicWings(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
 			boolean isBodyModel, Potion effect, int amplifier, boolean isDebuff, EnumRarity rarity, boolean hasEffect,
 			int tooltipLines, int annotationLines) {
-		super(modid, name, tab, sound, baubleType, isBodyModel, effect, amplifier, isDebuff, rarity, hasEffect, tooltipLines,
-		        annotationLines);
+		super(modid, name, tab, sound, baubleType, isBodyModel, effect, amplifier, isDebuff, rarity, hasEffect,
+				tooltipLines,
+				annotationLines);
 	}
 
 	@Override
@@ -35,7 +36,7 @@ public class ItemDemonicWings extends ModItemBaubleEffectBase {
 	public ModelBiped getBaubleModel() {
 		return new ModelAnimatedWings();
 	}
-	
+
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		if (player.fallDistance > 6 && !player.isSneaking()) {
@@ -65,5 +66,7 @@ public class ItemDemonicWings extends ModItemBaubleEffectBase {
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

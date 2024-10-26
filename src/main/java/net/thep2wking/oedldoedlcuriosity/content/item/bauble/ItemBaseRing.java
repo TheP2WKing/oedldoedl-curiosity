@@ -8,24 +8,18 @@ import net.minecraft.util.SoundEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
-import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
-import net.thep2wking.oedldoedlcuriosity.model.ModelGlasses;
+import net.thep2wking.oedldoedlcuriosity.util.ModNoModel;
 
-public class ItemGlasses extends ModItemBaubleBase {
-	public ItemGlasses(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
+public class ItemBaseRing extends ModItemBaubleBase {
+	public ItemBaseRing(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
 			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines, int annotationLines) {
 		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines, annotationLines);
+		setNoRender();
 	}
 
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getBaubleModel() {
-		return new ModelGlasses();
-	}
-
-	@Override
-	@SideOnly(Side.CLIENT)
-	public double getEyeOffset() {
-		return CuriosityConfig.CLIENT.BAUBLE_MODEL_EYE_OFFSET.getOffset();
+		return ModNoModel.NO_MODEL;
 	}
 }

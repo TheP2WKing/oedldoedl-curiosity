@@ -6,7 +6,6 @@ import net.thep2wking.oedldoedlcuriosity.api.ModModelBaubleBase;
 public class ModelAmulet extends ModModelBaubleBase {
 	public ModelAmulet() {
 		ModelRenderer bb_main = new ModelRenderer(this);
-		bb_main = new ModelRenderer(this);
 		bb_main.setRotationPoint(0, 24, 0);
 		bipedBody.addChild(bb_main);
 		bb_main.setTextureOffset(124, 7).addBox(-2.5F, -24.101F, 0.5F, 1, 1, 1, false);

@@ -72,5 +72,7 @@ public class ItemTravellersWings extends ModItemBaubleEffectBase {
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

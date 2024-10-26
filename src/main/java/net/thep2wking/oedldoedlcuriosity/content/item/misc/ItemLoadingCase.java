@@ -33,6 +33,7 @@ public class ItemLoadingCase extends ModItemBase {
 			}
 			worldIn.playSound(null, playerIn.getPosition(), SoundEvents.ITEM_ARMOR_EQUIP_GENERIC, SoundCategory.PLAYERS,
 					1f, 1f);
+			playerIn.swingArm(handIn);
 			return ActionResult.newResult(EnumActionResult.SUCCESS, itemstack);
 		}
 		return ActionResult.newResult(EnumActionResult.FAIL, itemstack);

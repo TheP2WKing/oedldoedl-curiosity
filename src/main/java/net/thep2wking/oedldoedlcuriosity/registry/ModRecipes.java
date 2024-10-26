@@ -2,7 +2,6 @@ package net.thep2wking.oedldoedlcuriosity.registry;
 
 import baubles.api.IBauble;
 import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.fml.common.registry.ForgeRegistries;
@@ -67,6 +66,7 @@ public class ModRecipes {
 			ModRecipeHelper.addOreDict("bauble", ModItems.GOOGLY_EYES, 0);
 			ModRecipeHelper.addOreDict("bauble", ModItems.MOUSTAGE, 0);
 			ModRecipeHelper.addOreDict("bauble", ModItems.FAKE_ARROW, 0);
+			ModRecipeHelper.addOreDict("bauble", ModItems.BAMBOO, 0);
 
 			ModRecipeHelper.addOreDict("bauble", ModItems.NIGHT_VISION_GOGGLES, 0);
 			ModRecipeHelper.addOreDict("bauble", ModItems.HEAT_VISION_GOGGLES, 0);
@@ -131,8 +131,7 @@ public class ModRecipes {
 					"fabricWhite", 'C', "speaker", 'D', "electricalComponent", 'E', "ingotIron");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "minepods_max",
 					new ItemStack(ModItems.MINEPODS_MAX, 1, 0), "ABA", "CDC", "AEA", 'A', "ingotIron", 'B',
-					"fabricWhite", 'C', "speaker", 'D', "electricalComponent", 'E',
-					new ItemStack(Blocks.STONE_BUTTON, 1, 0));
+					"fabricWhite", 'C', "speaker", 'D', "electricalComponent", 'E', "buttonStone");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "pylone", new ItemStack(ModItems.PYLONE, 1, 0),
 					" A ", "BBB", "AAA", 'A', new ItemStack(Blocks.CONCRETE, 1, 1), 'B',
 					new ItemStack(Blocks.CONCRETE, 1, 0));
@@ -162,27 +161,31 @@ public class ModRecipes {
 					"cropWheat");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "plumbob", new ItemStack(ModItems.PLUMBOB, 1, 0),
 					"A", "B", "C", 'A', "dyeLime", 'B', "gemEmerald", 'C', "dyeGreen");
-			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "battle_axe", new ItemStack(ModItems.BATTLE_AXE, 1, 0),
+			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "battle_axe",
+					new ItemStack(ModItems.BATTLE_AXE, 1, 0),
 					"ABA", "ACA", "ADA", 'A', "ingotIron", 'B', "fabricPink", 'C', "blockIron", 'D', "fabricMagenta");
 
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "glasses", new ItemStack(ModItems.GLASSES, 1, 0),
 					"A A", "ABA", "CDC", 'A', "ingotIron", 'B', "dyeBlack", 'C', "glassesLens", 'D', "nuggetIron");
-			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "sunglasses",
-					new ItemStack(ModItems.SUNGLASSES, 1, 0), " A ", "ABA", " A ", 'A', "dyeBlack", 'B',
-					new ItemStack(ModItems.GLASSES, 1, 0));
-			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "fancy_sunglasses",
-					new ItemStack(ModItems.FANCY_SUNGLASSES, 1, 0), " A ", "BCD", " A ", 'A', "dyeBrown", 'B',
-					"dyeYellow", 'C', new ItemStack(ModItems.GLASSES, 1, 0), 'D', "dyeGray");
-			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "amazing_technicolor_glasses",
-					new ItemStack(ModItems.AMAZING_TECHNICOLOR_GLASSES, 1, 0), "ABC", "DEF", "GHI", 'A', "dyeYellow",
-					'B', "dyeOrange", 'C', "dyeRed", 'D', "dyeLime", 'E', new ItemStack(ModItems.GLASSES, 1, 0), 'F',
-					"dyeLightBlue", 'G', "dyePurple", 'H', "dyePink", 'I', "dyeBlue");
+			ModRecipeHelper.addShapelessRecipe(OedldoedlCuriosity.MODID, "sunglasses",
+					new ItemStack(ModItems.SUNGLASSES, 1, 0), new ItemStack(ModItems.GLASSES, 1, 0), "dyeBlack",
+					"dyeBlack");
+			ModRecipeHelper.addShapelessRecipe(OedldoedlCuriosity.MODID, "fancy_sunglasses",
+					new ItemStack(ModItems.FANCY_SUNGLASSES, 1, 0), new ItemStack(ModItems.GLASSES, 1, 0), "dyeBrown",
+					"dyeYellow", "dyeGray");
+			ModRecipeHelper.addShapelessRecipe(OedldoedlCuriosity.MODID, "amazing_technicolor_glasses",
+					new ItemStack(ModItems.AMAZING_TECHNICOLOR_GLASSES, 1, 0), new ItemStack(ModItems.GLASSES, 1, 0),
+					"dyeYellow", "dyeOrange", "dyeRed", "dyeLime", "dyeLightBlue", "dyePurple", "dyePink", "dyeBlue");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "3d_glasses",
 					new ItemStack(ModItems.THREE_D_GLASSES, 1, 0), " A ", "BCD", " A ", 'A', "dyeWhite", 'B', "dyeRed",
 					'C', new ItemStack(ModItems.GLASSES, 1, 0), 'D', "dyeBlue");
-			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "thug_life_glasses",
-					new ItemStack(ModItems.THUG_LIFE_GLASSES, 1, 0), " A ", "BCD", " A ", 'A', "dyeBlack", 'B',
-					"listAllwater", 'C', new ItemStack(ModItems.GLASSES, 1, 0), 'D', "cobweb");
+			ModRecipeHelper.addShapelessRecipe(OedldoedlCuriosity.MODID, "3d_glasses",
+					new ItemStack(ModItems.THREE_D_GLASSES, 1, 0), new ItemStack(ModItems.GLASSES, 1, 0), "dyeWhite",
+					"dyeRed", "dyeBlue");
+			ModRecipeHelper.addShapelessRecipe(OedldoedlCuriosity.MODID, "thug_life_glasses",
+					new ItemStack(ModItems.THUG_LIFE_GLASSES, 1, 0), new ItemStack(ModItems.GLASSES, 1, 0),
+					"listAllwater", "cobweb", "dyeBlack");
+
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "joint", new ItemStack(ModItems.JOINT, 1, 0),
 					"AB ", "BAB", " BA", 'A', "grassPlant", 'B', "paper");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "leaf_headband",
@@ -192,13 +195,15 @@ public class ModRecipes {
 					" A ", "ABA", " AC", 'A', "ingotGold", 'B', "paneGlass", 'C', "nuggetGold");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "googly_eyes",
 					new ItemStack(ModItems.GOOGLY_EYES, 1, 0), "ABA", "CDC", "D D", 'A', "fabricBlack", 'B',
-					"safetyPin", 'C', new ItemStack(Items.SPIDER_EYE, 1, 0), 'D', "fabricWhite");
+					"safetyPin", 'C', "spiderEye", 'D', "fabricWhite");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "moustage",
 					new ItemStack(ModItems.MOUSTAGE, 1, 0),
 					" A ", "BCB", "C C", 'A', "safetyPin", 'B', "string", 'C', "fabricBlack");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "fake_arrow",
 					new ItemStack(ModItems.FAKE_ARROW, 1, 0), "  A", " B ", "C  ", 'A', "ingotIron", 'B', "stickWood",
 					'C', "feather");
+			ModRecipeHelper.addShapelessRecipe(OedldoedlCuriosity.MODID, "bamboo", new ItemStack(ModItems.BAMBOO, 1, 0),
+					"rubberBand", "dyeGreen", "dyeLime", "stickWood");
 
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "night_vision_goggles",
 					new ItemStack(ModItems.NIGHT_VISION_GOGGLES, 1, 0), "ABC", "BDE", "CEF", 'A',
@@ -210,8 +215,8 @@ public class ModRecipes {
 					"glassesLensIndustrial", 'D', "electricalComponent", 'E', "gemLapis");
 
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "wooden_box",
-					new ItemStack(ModItems.WOODEN_BOX, 1, 0), "ABB", "BCD", "ABB", 'A', "ingotIron", 'B', "plankWood",
-					'C', "skull", 'D', "stickWood");
+					new ItemStack(ModItems.WOODEN_BOX, 1, 0), "ABC", "DEB", "ABC", 'A', "nuggetIron", 'B', "plankWood",
+					'C', "ingotIron", 'D', new ItemStack(ModItems.BAMBOO, 1, 0), 'E', "skull");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "travellers_wings",
 					new ItemStack(ModItems.TRAVELLERS_WINGS, 1, 0), "ABA", "ACA", "ABA", 'A', "leatherTravellers", 'B',
 					"feather", 'C', "enderpearl");
@@ -273,9 +278,9 @@ public class ModRecipes {
 					"gemLapis", 'C', "gemDiamond", 'D', "ingotIron");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "speaker", new ItemStack(ModItems.SPEAKER, 1, 0),
 					" A", "AB", " A", 'A', "ingotIron", 'B', "electricalComponent");
-			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "rubber_band",
-					new ItemStack(ModItems.RUBBER_BAND, 1, 0), "ABA", "DCD", "DDD", 'A', "dyeRed", 'B', "string", 'C',
-					new ItemStack(Items.WATER_BUCKET, 1, 0), 'D', "treeSapling");
+			ModRecipeHelper.addShapelessRecipe(OedldoedlCuriosity.MODID, "rubber_band",
+					new ItemStack(ModItems.RUBBER_BAND, 1, 0), "listAllwater", "dyeRed", "dyeRed", "string",
+					"treeSapling", "treeSapling", "treeSapling", "treeSapling", "treeSapling");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "lens", new ItemStack(ModItems.LENS, 1, 0), "ABA",
 					"BCB", "ABA", 'A', "dyeBlack", 'B', "nuggetIron", 'C', "paneGlass");
 			ModRecipeHelper.addShapedRecipe(OedldoedlCuriosity.MODID, "industrial_lens",

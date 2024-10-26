@@ -4,12 +4,17 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.google.common.collect.Multimap;
+
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
@@ -17,11 +22,13 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.Constants.AttributeModifierOperation;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.thep2wking.oedldoedlcore.util.ModReferences;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
@@ -41,6 +48,16 @@ public class ItemBalancedNecklace extends ModItemBaubleBase {
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getBaubleModel() {
 		return new ModelAmulet();
+	}
+
+	@Override
+	public Multimap<IAttribute, AttributeModifier> getBaubleAttributeModifiers() {
+		Multimap<IAttribute, AttributeModifier> multimap = super.getBaubleAttributeModifiers();
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE, new AttributeModifier(
+				ModReferences.ATTRIBUTE_KNOCKBACK_RESISTANCE, 100, AttributeModifierOperation.ADD));
+		multimap.put(SharedMonsterAttributes.MAX_HEALTH,
+				new AttributeModifier(ModReferences.ATTRIBUTE_MAX_HEALTH, 100, AttributeModifierOperation.ADD));
+		return multimap;
 	}
 
 	@Override
@@ -96,11 +113,13 @@ public class ItemBalancedNecklace extends ModItemBaubleBase {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
 			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 0 + 1,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 2);
-					ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 3);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 2);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 3);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

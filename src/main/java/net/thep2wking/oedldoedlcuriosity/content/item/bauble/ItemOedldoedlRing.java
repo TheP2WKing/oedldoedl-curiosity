@@ -5,6 +5,7 @@ import java.util.List;
 import javax.annotation.Nullable;
 
 import baubles.api.BaubleType;
+import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
@@ -19,6 +20,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
+import net.thep2wking.oedldoedlcuriosity.util.ModNoModel;
 
 public class ItemOedldoedlRing extends ModItemBaubleBase {
 	public ItemOedldoedlRing(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
@@ -26,6 +28,13 @@ public class ItemOedldoedlRing extends ModItemBaubleBase {
 			int annotationLines) {
 		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines,
 				annotationLines);
+		setNoRender();
+	}
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public ModelBiped getBaubleModel() {
+		return ModNoModel.NO_MODEL;
 	}
 
 	@Override
@@ -95,5 +104,7 @@ public class ItemOedldoedlRing extends ModItemBaubleBase {
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

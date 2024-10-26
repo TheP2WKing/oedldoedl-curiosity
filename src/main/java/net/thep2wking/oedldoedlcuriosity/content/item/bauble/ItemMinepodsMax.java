@@ -4,19 +4,26 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.google.common.collect.Multimap;
+
 import baubles.api.BaubleType;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.Constants.AttributeModifierOperation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.thep2wking.oedldoedlcore.util.ModReferences;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
@@ -37,11 +44,17 @@ public class ItemMinepodsMax extends ModItemBaubleBase {
 	}
 
 	@Override
+	public Multimap<IAttribute, AttributeModifier> getBaubleAttributeModifiers() {
+		Multimap<IAttribute, AttributeModifier> multimap = super.getBaubleAttributeModifiers();
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED, new AttributeModifier(
+				ModReferences.ATTRIBUTE_MOVEMENT_SPEED, 0.4, AttributeModifierOperation.ADD_MULTIPLE));
+		return multimap;
+	}
+
+	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		player.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST,
 				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 1, false, false));
-		player.addPotionEffect(new PotionEffect(MobEffects.SPEED,
-				CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION, 2, false, false));
 	}
 
 	@Override
@@ -64,10 +77,10 @@ public class ItemMinepodsMax extends ModItemBaubleBase {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
 			ModTooltips.addPotionEffect(tooltip, MobEffects.JUMP_BOOST.getName(), false, 2,
 					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.SPEED.getName(), false, 3,
-					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

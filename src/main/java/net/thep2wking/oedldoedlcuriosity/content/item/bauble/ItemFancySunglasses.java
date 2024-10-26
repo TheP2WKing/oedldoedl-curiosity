@@ -18,6 +18,7 @@ import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
+import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 import net.thep2wking.oedldoedlcuriosity.model.ModelFancySunglasses;
 
 public class ItemFancySunglasses extends ModItemBaubleBase {
@@ -31,7 +32,13 @@ public class ItemFancySunglasses extends ModItemBaubleBase {
 	public ModelBiped getBaubleModel() {
 		return new ModelFancySunglasses();
 	}
-	
+
+	@Override
+	@SideOnly(Side.CLIENT)
+	public double getEyeOffset() {
+		return CuriosityConfig.CLIENT.BAUBLE_MODEL_EYE_OFFSET.getOffset();
+	}
+
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		player.removePotionEffect(MobEffects.BLINDNESS);
@@ -59,5 +66,7 @@ public class ItemFancySunglasses extends ModItemBaubleBase {
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

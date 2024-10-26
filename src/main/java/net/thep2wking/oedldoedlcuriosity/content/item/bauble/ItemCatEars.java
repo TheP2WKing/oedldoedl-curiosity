@@ -50,29 +50,28 @@ public class ItemCatEars extends ModItemBaubleBase {
 	}
 
 	@Override
-    @SideOnly(Side.CLIENT)
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
-        if (ModTooltips.showAnnotationTip()) {
-            for (int i = 1; i <= annotationLines; ++i) {
-                ModTooltips.addAnnotation(tooltip, this.getUnlocalizedName(), i);
-            }
-        }
-        if (ModTooltips.showInfoTip()) {
-            for (int i = 1; i <= tooltipLines; ++i) {
-                ModTooltips.addInformation(tooltip, this.getUnlocalizedName(), i);
-            }
-        } else if (ModTooltips.showInfoTipKey() && !(tooltipLines == 0)) {
-            ModTooltips.addKey(tooltip, ModTooltips.KEY_INFO);
-        }
+	@SideOnly(Side.CLIENT)
+	public void addInformation(ItemStack stack, @Nullable World worldIn, List<String> tooltip, ITooltipFlag flagIn) {
+		if (ModTooltips.showAnnotationTip()) {
+			for (int i = 1; i <= annotationLines; ++i) {
+				ModTooltips.addAnnotation(tooltip, this.getUnlocalizedName(), i);
+			}
+		}
+		if (ModTooltips.showInfoTip()) {
+			for (int i = 1; i <= tooltipLines; ++i) {
+				ModTooltips.addInformation(tooltip, this.getUnlocalizedName(), i);
+			}
+		} else if (ModTooltips.showInfoTipKey() && !(tooltipLines == 0)) {
+			ModTooltips.addKey(tooltip, ModTooltips.KEY_INFO);
+		}
 
-		if (ModTooltips.showEffectTip())
-		{
+		if (ModTooltips.showEffectTip()) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
 			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
-		}
-		else if (ModTooltips.showEffectTipKey())
-		{
+		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
-    }
+
+		addDefaultAttributeInformation(tooltip);
+	}
 }

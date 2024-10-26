@@ -66,6 +66,7 @@ public class ModRegistry {
 		ModRegistryHelper.registerItem(event, ModItems.GOOGLY_EYES);
 		ModRegistryHelper.registerItem(event, ModItems.MOUSTAGE);
 		ModRegistryHelper.registerItem(event, ModItems.FAKE_ARROW);
+		ModRegistryHelper.registerItem(event, ModItems.BAMBOO);
 
 		ModRegistryHelper.registerItem(event, ModItems.NIGHT_VISION_GOGGLES);
 		ModRegistryHelper.registerItem(event, ModItems.HEAT_VISION_GOGGLES);

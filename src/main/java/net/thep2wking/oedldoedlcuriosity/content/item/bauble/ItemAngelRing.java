@@ -58,7 +58,7 @@ public class ItemAngelRing extends ModItemBaubleBase {
 
 	@Override
 	public void onEquipped(ItemStack itemstack, EntityLivingBase player) {
-		this.getEquipmentSound(player);
+		super.onEquipped(itemstack, player);
 		if (player instanceof EntityPlayer) {
 			EntityPlayer entity = (EntityPlayer) player;
 			startFlying(entity);
@@ -67,7 +67,7 @@ public class ItemAngelRing extends ModItemBaubleBase {
 
 	@Override
 	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
-		this.getEquipmentSound(player);
+		super.onUnequipped(itemstack, player);
 		if (player instanceof EntityPlayer) {
 			EntityPlayer entity = (EntityPlayer) player;
 			stopFlying(entity);
@@ -96,5 +96,7 @@ public class ItemAngelRing extends ModItemBaubleBase {
 		} else if (ModTooltips.showEffectTipKey() && CuriosityConfig.CONTENT.ANGEL_RING_FLIGHT) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

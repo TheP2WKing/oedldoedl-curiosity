@@ -38,9 +38,14 @@ public class ItemAmazingTechnicolorGlasses extends ModItemBaubleEffectBase {
 	}
 
 	@Override
+	@SideOnly(Side.CLIENT)
+	public double getEyeOffset() {
+		return CuriosityConfig.CLIENT.BAUBLE_MODEL_EYE_OFFSET.getOffset();
+	}
+
+	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
-		player.addPotionEffect(new PotionEffect(effect, CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION,
-				amplifier, false, false));
+		player.addPotionEffect(new PotionEffect(effect, 400, amplifier, false, false));
 		player.removePotionEffect(MobEffects.BLINDNESS);
 	}
 
@@ -62,11 +67,12 @@ public class ItemAmazingTechnicolorGlasses extends ModItemBaubleEffectBase {
 
 		if (ModTooltips.showEffectTip()) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addPotionEffect(tooltip, effect.getName(), isDebuff, amplifier + 1,
-					CuriosityConfig.PROPERTIES.EFFECTS.BAUBLE_BASE_DURATION);
+			ModTooltips.addPotionEffect(tooltip, effect.getName(), isDebuff, amplifier + 1, 400);
 			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

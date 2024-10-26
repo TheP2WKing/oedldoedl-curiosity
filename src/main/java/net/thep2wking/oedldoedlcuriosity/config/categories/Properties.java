@@ -6,9 +6,6 @@ public class Properties {
 	@Config.Name("Baubles Use Any Slot")
 	public boolean BAUBLES_USE_ANY_SLOT = false;
 
-	@Config.Name("Baubles Do Render")
-	public boolean BAUBLES_DO_RENDER = true;
-
 	@Config.Name("Baubles Step Up")
 	public boolean BAUBLES_STEP_UP = true;
 
@@ -18,6 +15,9 @@ public class Properties {
 	@Config.Name("Baubles Night Vision")
 	public boolean BAUBLES_NIGHT_VISION = true;
 
+	@Config.Name("Baubles Attribute Modifier")
+	public boolean BAUBLES_ATTRIBUTE_MODIFIER = true;
+	
 	@Config.Name("effects")
 	public final Effects EFFECTS = new Effects();
 

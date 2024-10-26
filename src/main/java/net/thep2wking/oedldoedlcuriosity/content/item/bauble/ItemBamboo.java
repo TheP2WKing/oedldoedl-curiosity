@@ -4,35 +4,32 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.google.common.collect.Multimap;
+
 import baubles.api.BaubleType;
-import baubles.api.BaublesApi;
-import net.minecraft.client.Minecraft;
-import net.minecraft.client.gui.Gui;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
-import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
-import net.minecraftforge.client.event.RenderGameOverlayEvent;
-import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.common.util.Constants.AttributeModifierOperation;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.thep2wking.oedldoedlcore.util.ModReferences;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
-import net.thep2wking.oedldoedlcuriosity.init.ModItems;
-import net.thep2wking.oedldoedlcuriosity.model.ModelNightVisionGoggles;
+import net.thep2wking.oedldoedlcuriosity.model.ModelBamboo;
 
-@Mod.EventBusSubscriber
-public class ItemNightVisionGoggles extends ModItemBaubleBase {
-	public ItemNightVisionGoggles(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
+public class ItemBamboo extends ModItemBaubleBase {
+	public ItemBamboo(String modid, String name, CreativeTabs tab, SoundEvent sound, BaubleType baubleType,
 			boolean isBodyModel, EnumRarity rarity, boolean hasEffect, int tooltipLines, int annotationLines) {
 		super(modid, name, tab, sound, baubleType, isBodyModel, rarity, hasEffect, tooltipLines, annotationLines);
 	}
@@ -40,40 +37,37 @@ public class ItemNightVisionGoggles extends ModItemBaubleBase {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getBaubleModel() {
-		return new ModelNightVisionGoggles();
+		return new ModelBamboo();
 	}
 
-	@SubscribeEvent
+	@Override
 	@SideOnly(Side.CLIENT)
-	public static void onGameRenderOverlay(RenderGameOverlayEvent.Pre event) {
-		Minecraft mc = Minecraft.getMinecraft();
-		EntityPlayer player = mc.player;
-		boolean doRender = !player.isSneaking() && CuriosityConfig.CONTENT.NIGHT_VISION_GOGGLES_OVERLAY;
-		if (doRender) {
-			if (event.getType() != RenderGameOverlayEvent.ElementType.ALL) {
-				return;
-			}
-			if (BaublesApi.isBaubleEquipped(player, ModItems.NIGHT_VISION_GOGGLES) != -1) {
-				int color = 0xA839692e;
-				Gui.drawRect(0, 0, event.getResolution().getScaledWidth(), event.getResolution().getScaledHeight(),
-						color);
-			}
-		}
+	public double getEyeOffset() {
+		return CuriosityConfig.CLIENT.BAUBLE_MODEL_EYE_OFFSET.getOffset();
+	}
+
+	@Override
+	public Multimap<IAttribute, AttributeModifier> getBaubleAttributeModifiers() {
+		Multimap<IAttribute, AttributeModifier> multimap = super.getBaubleAttributeModifiers();
+		multimap.put(SharedMonsterAttributes.MOVEMENT_SPEED, new AttributeModifier(
+				ModReferences.ATTRIBUTE_MOVEMENT_SPEED, 1, AttributeModifierOperation.ADD_MULTIPLE));
+		return multimap;
 	}
 
 	@Override
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
-		if (!player.isSneaking()) {
-			player.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 400, 0, false, false));
-		} else {
-			player.removePotionEffect(MobEffects.NIGHT_VISION);
+		if (CuriosityConfig.PROPERTIES.BAUBLES_STEP_UP) {
+			player.stepHeight = 2.1f;
 		}
 	}
 
 	@Override
 	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
 		super.onUnequipped(itemstack, player);
-		player.removePotionEffect(MobEffects.NIGHT_VISION);
+		if (player instanceof EntityPlayer) {
+			EntityPlayer entity = (EntityPlayer) player;
+			entity.stepHeight = 0.6F;
+		}
 	}
 
 	@Override
@@ -94,7 +88,7 @@ public class ItemNightVisionGoggles extends ModItemBaubleBase {
 
 		if (ModTooltips.showEffectTip()) {
 			ModTooltips.addEffectHeader(tooltip, ModTooltips.EFFECT_BAUBLE);
-			ModTooltips.addPotionEffect(tooltip, MobEffects.NIGHT_VISION.getName(), false, 1, 400);
+			ModTooltips.addCustomEffectInformation(tooltip, this.getUnlocalizedName(), 1);
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}

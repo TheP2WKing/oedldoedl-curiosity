@@ -36,7 +36,8 @@ public class ItemJoint extends ModItemBaubleBase {
 	public void onWornTick(ItemStack itemstack, EntityLivingBase player) {
 		if (player.isSneaking()) {
 			player.motionY = 0.5;
-			player.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX, player.posY + player.getEyeHeight() - 0.3,
+			player.world.spawnParticle(EnumParticleTypes.SMOKE_LARGE, player.posX,
+					player.posY + player.getEyeHeight() - 0.3,
 					player.posZ, Math.random() * 0.3 - 0.1, Math.random() * 0.35, Math.random() * 0.3 - 0.1);
 		}
 	}
@@ -63,5 +64,7 @@ public class ItemJoint extends ModItemBaubleBase {
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

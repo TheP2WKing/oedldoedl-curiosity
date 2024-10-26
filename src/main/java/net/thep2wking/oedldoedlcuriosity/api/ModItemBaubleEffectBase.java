@@ -22,7 +22,7 @@ import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
 /**
  * @author TheP2WKing
  */
-public class ModItemBaubleEffectBase extends ModItemBaubleBase {
+public abstract class ModItemBaubleEffectBase extends ModItemBaubleBase {
 	public final Potion effect;
 	public final int amplifier;
 	public final boolean isDebuff;
@@ -81,5 +81,7 @@ public class ModItemBaubleEffectBase extends ModItemBaubleBase {
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

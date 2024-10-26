@@ -4,12 +4,17 @@ import java.util.List;
 
 import javax.annotation.Nullable;
 
+import com.google.common.collect.Multimap;
+
 import baubles.api.BaubleType;
 import baubles.api.BaublesApi;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.entity.EntityLivingBase;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
+import net.minecraft.entity.ai.attributes.IAttribute;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.EnumRarity;
@@ -18,11 +23,13 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.world.World;
+import net.minecraftforge.common.util.Constants.AttributeModifierOperation;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
+import net.thep2wking.oedldoedlcore.util.ModReferences;
 import net.thep2wking.oedldoedlcore.util.ModTooltips;
 import net.thep2wking.oedldoedlcuriosity.api.ModItemBaubleBase;
 import net.thep2wking.oedldoedlcuriosity.config.CuriosityConfig;
@@ -42,6 +49,14 @@ public class ItemArgentoriumAmulet extends ModItemBaubleBase {
 	@SideOnly(Side.CLIENT)
 	public ModelBiped getBaubleModel() {
 		return new ModelAmulet();
+	}
+
+	@Override
+	public Multimap<IAttribute, AttributeModifier> getBaubleAttributeModifiers() {
+		Multimap<IAttribute, AttributeModifier> multimap = super.getBaubleAttributeModifiers();
+		multimap.put(SharedMonsterAttributes.KNOCKBACK_RESISTANCE,
+				new AttributeModifier(ModReferences.ATTRIBUTE_KNOCKBACK_RESISTANCE, 1, AttributeModifierOperation.ADD));
+		return multimap;
 	}
 
 	@Override
@@ -71,9 +86,11 @@ public class ItemArgentoriumAmulet extends ModItemBaubleBase {
 			if (event.getSource().getTrueSource() instanceof EntityPlayer) {
 				EntityPlayer player = (EntityPlayer) event.getSource().getTrueSource();
 				if (BaublesApi.isBaubleEquipped(player, ModItems.ARGENTORIUM_AMULET) != -1) {
-					if (event.getEntityLiving().isEntityUndead() && CuriosityConfig.CONTENT.AMULETS.ARGENTORIUM_AMULET_BONUS_DAMAGE) {
+					if (event.getEntityLiving().isEntityUndead()
+							&& CuriosityConfig.CONTENT.AMULETS.ARGENTORIUM_AMULET_BONUS_DAMAGE) {
 						event.getEntityLiving().setHealth(event.getEntityLiving().getHealth() - 14.5f);
-					} else if (player.isSneaking() && CuriosityConfig.CONTENT.AMULETS.ARGENTORIUM_AMULET_FAST_REGENERATION) {
+					} else if (player.isSneaking()
+							&& CuriosityConfig.CONTENT.AMULETS.ARGENTORIUM_AMULET_FAST_REGENERATION) {
 						event.getEntityLiving()
 								.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 40, 3, false, false));
 					}
@@ -84,7 +101,7 @@ public class ItemArgentoriumAmulet extends ModItemBaubleBase {
 
 	@Override
 	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
-		this.getEquipmentSound(player);
+		super.onUnequipped(itemstack, player);
 		if (player instanceof EntityPlayer) {
 			EntityPlayer entity = (EntityPlayer) player;
 			entity.stepHeight = 0.6F;
@@ -119,5 +136,7 @@ public class ItemArgentoriumAmulet extends ModItemBaubleBase {
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }

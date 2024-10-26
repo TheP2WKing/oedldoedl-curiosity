@@ -95,6 +95,7 @@ public class ItemHeatVisionGoggles extends ModItemBaubleBase {
 
 	@Override
 	public void onUnequipped(ItemStack itemstack, EntityLivingBase player) {
+		super.onUnequipped(itemstack, player);
 		for (EntityLivingBase mob : entitiesToRemove) {
 			mob.removePotionEffect(MobEffects.GLOWING);
 		}
@@ -123,5 +124,7 @@ public class ItemHeatVisionGoggles extends ModItemBaubleBase {
 		} else if (ModTooltips.showEffectTipKey()) {
 			ModTooltips.addKey(tooltip, ModTooltips.KEY_EFFECTS);
 		}
+
+		addDefaultAttributeInformation(tooltip);
 	}
 }
