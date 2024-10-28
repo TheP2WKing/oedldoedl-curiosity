@@ -273,7 +273,7 @@ public abstract class ModItemBaubleBase extends ModItemBase implements IBauble, 
 
             // GlStateManager.disableColorMaterial();
             GlStateManager.disableRescaleNormal();
-            GlStateManager.disableLighting();
+            // GlStateManager.disableLighting();
             GlStateManager.popMatrix();
         } else if (this.isBodyModel && this.hasBaubleRender() && this.getBaubleModel() != null
                 && renderType == RenderType.BODY) {
@@ -306,7 +306,7 @@ public abstract class ModItemBaubleBase extends ModItemBase implements IBauble, 
 
             // GlStateManager.disableColorMaterial();
             GlStateManager.disableRescaleNormal();
-            GlStateManager.disableLighting();
+            // GlStateManager.disableLighting();
             GlStateManager.popMatrix();
         }
     }
