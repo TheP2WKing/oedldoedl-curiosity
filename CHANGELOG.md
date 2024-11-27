@@ -1,5 +1,31 @@
 # Changelog
 
+## [4.2.0] - 2024-11-27
+
+### Added
+
+- added support for attribute modifier on baubles
+- added armor and toughness attributes to almost all baubles
+- added attribute  tooltip to bauble items
+- added config to disable attribute modifier on baubles entirely
+- added config option to offset bauble models like glasses to fit to player eye level
+- added an empty model that will be used by baubles with no model associated
+- added bamboo bauble
+
+### Changed
+
+- updated creative tab implementation
+- replaced some potion effects by now preferred attribute modifier
+- changed wooden box recipe to be more fitting
+- updated texture of balanced amulet when worn
+
+### Fixed
+
+- fixed broken lighting of bauble models
+- fixed equipping sound not properly plying in some scenarios
+- fixed night vision potion effect durations for some baubles to be a maximum of 20 to prevent flickering
+- fixed hole in 3d glasses texture
+  
 ## [4.1.0] - 2024-06-09
 
 ### Added
